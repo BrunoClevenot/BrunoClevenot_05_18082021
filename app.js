@@ -23,5 +23,5 @@ app.use(express.json());
 app.use('/api/cameras', cameraRoutes);
 app.use('/api/teddies', teddyRoutes);
 app.use('/api/furniture', furnitureRoutes);
-
+app.use(express.static('Static'));
 module.exports = app;
