@@ -7,13 +7,20 @@
     <link rel="shortcut icon" type="images/png" href="logo-chariot.png">
 
     <!-- Liens vers polices, icones fontawesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet"> 
 
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    
+
+    <style>
+        .jumbotron {
+            background-image: url("../images/minicam.jpg");
+            background-size: 50% 100%;
+        }
+    </style>
 
     <title>Orinoco - Orinocam - Acceuil</title>
 </head>
@@ -23,9 +30,9 @@
         <div class="container">						
             <div class="row mb-2">						
                 <nav class="col navbar navbar-expand navbar-dark">						
-                    <a class="navbar-brand text-warning" href="index.html">
+                    <a class="navbar-brand text-white" href="index.html">
                         <img src="logo.png" width="76" alt="Site logo">
-                        ORINO'CAM <small > - Un site ORINOCO</small>	
+                        ORINO'CAM
                     </a>	
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">						
                         <span class="navbar-toggler-icon"></span>						
@@ -34,7 +41,7 @@
                     <div id="navbarContent" class="collapse navbar-collapse">						           
                         <ul class="navbar-nav">						
                             <li class="nav-item active">						
-                                <a class="nav-link text-warning" href="index.html">Accueil</a>						
+                                <a class="nav-link text-white" href="index.html">Accueil</a>						
                             </li>						
                            <li class="nav-item">						
                                 <a class="nav-link text-info" href="#">Paniers</a>    						
@@ -48,63 +55,66 @@
     <!-- Fin du Header-->
 
     <!-- Section principale-->
-    <section class=" mx-auto">
+    <section class="mx-auto my-0">
         <div class="container">
-            <div class="row bg-dark">
-                <div class="col text-center mx-auto">
-                    <h1 class="col font-weight-bold text-warning text-center mx-1 my-auto">ORINO'CAM</h1>
-                    <p class="col text-warning text-center mx-auto my-2">Collection d'appareils photographiques anciens</p>
-                    <h2 class="col font-weight-bold text-warning text-center mx-1 my-2">PRÉSENTATION DE NOS PRODUITS</h2>
+            <div class="jumbotron extand bg-dark border-0 rounded my-0 mx-auto">
+                <h1 class="col font-weight-bold text-white text-center mx-auto my-2">ORINO'CAM</h1>
+                <p class="col text-white text-center mx-auto my-2">Collection d'appareils photographiques anciens</p>
+            </div>
+            
+            <div class="row bg-light border-0 rounded my-5">
+                <div class="col text=center mx-auto">
+                    <h2 class="col font-weight-bold text-white text-center mx-auto my-2">PRÉSENTATION DE NOS PRODUITS</h2>
                 </div>
             </div>
-            <div class="row my-1 text-center">
-                <div class="card bg-warning col-11 col-md-5 mx-auto my-1 border-primary rounded">
+            <div class="row mb-3 text-center">
+                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="produit.html">
-                        <img class="card-img-top my-1" src="../images/vcam_1.jpg" alt="Appareil photo rétro 1">
+                        <img class="card-img-top my-2" src="../images/vcam_1.jpg" alt="Appareil photo rétro 1">
                         <div class="card-body">
-                            <p class="text-left text-primary"> Nom : ZURSS 50 S
-                                <br/> Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                <br/> Prix : 49,90 €
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
                         </div>
                     </a>
                 </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto my-1 border-primary rounded">
+                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="produit.html">
-                        <img class="card-img-top my-1" src="../images/vcam_2.jpg" alt="Appareil photo rétro 1">
+                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_2.jpg" alt="Appareil photo rétro 1">
                         <div class="card-body">
-                            <p class="text-left text-primary"> Nom : ZURSS 50 S
-                                <br/> Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                <br/> Prix : 49,90 €
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
                         </div>
                     </a>
                 </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto my-1 border-primary rounded">
+                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="produit.html">
-                        <img class="card-img-top my-1" src="../images/vcam_3.jpg" alt="Appareil photo rétro 1">
+                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_3.jpg" alt="Appareil photo rétro 1">
                         <div class="card-body">
-                            <p class="text-left text-primary"> Nom : ZURSS 50 S
-                                <br/> Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                <br/> Prix : 49,90 €
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
                         </div>
                     </a>
                 </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto my-1 border-primary rounded">
+                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="produit.html">
-                        <img class="card-img-top my-1" src="../images/vcam_4.jpg" alt="Appareil photo rétro 1">
+                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_4.jpg" alt="Appareil photo rétro 1">
                         <div class="card-body">
-                            <p class="text-left text-primary"> Nom : ZURSS 50 S
-                                <br/> Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                <br/> Prix : 49,90 €
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
                         </div>
                     </a>
                 </div>
-                <div class="card bg-warning col-11 col-md-5  mx-auto my-1 border-primary rounded">
+                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="produit.html">
-                        <img class="card-img-top my-1" src="../images/vcam_5.jpg" alt="Appareil photo rétro 1">
+                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_5.jpg" alt="Appareil photo rétro 1">
                         <div class="card-body">
-                            <p class="text-left text-primary"> Nom : ZURSS 50 S
-                                <br/> Description : Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                <br/> Prix : 49,90 €
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
                         </div>
                     </a>
                 </div>
@@ -114,71 +124,39 @@
     <!-- Fin de la section principale-->
 
     <!-- Footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark my-3">
         <div class="container">						
-            <div class="row mt-2">						
-                <nav class="col navbar navbar-expand navbar-dark">												           
-                    <div id="navbarContentFooter" class="collapse navbar-collapse">						           
-                        <ul class="navbar-nav mx-auto">						
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Conditions Générales</a>						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Mentions Légales</a>    						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">SAV</a>    						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">LE GROUPE ORINICO</a>    						
-                            </li>	   						
-                        </ul>
-                    </div>						                           
-                </nav>						
-            </div>					
+            <div class="row">
+                <p class="text-center text-white font-weight-bold col-11 mx-auto h5 my-3">LE GROUPE ORINICO</p>
             </div>
             <div class="row">						
-                <nav class="col navbar navbar-expand navbar-dark">												           
-                    <div id="navbarContentFooter" class="collapse navbar-collapse">						           
-                        <ul class="navbar-nav mx-auto my-0">						
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orin'Ours</a>						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orino'Meubles</a>    						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orino'Livres</a>    						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orino'Cuisine</a>    						
-                            </li>	   						
+                <div class="card bg-dark col-11 col-md-5  mx-auto my-0 border-0">
+                    <div class="card-body">
+                        <p class="text-left text-white font-weight-bold h6 my-1">GÉNÉRALITÉS</p>
+                        <ul class="list-group">
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Conditions générales de ventes</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Mentions légales</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">SAV</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="mailto:contact@oricono.com" class="text-left text-white">Contactez-nous</a></li>
                         </ul>
-                    </div>						                           
-                </nav>						
-            </div>
-            <div class="row">						
-                <nav class="col navbar navbar-expand navbar-dark">												           
-                    <div id="navbarContentFooter" class="collapse navbar-collapse">						           
-                        <ul class="navbar-nav mx-auto my-0">
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orino'Cuisine</a>    						
-                            </li>
-                            <li class="nav-item">						
-                                <a class="nav-link text-warning text-center" href="#">Orin'Informatique</a>    						
-                            </li>	   						
-                        </ul>
-                    </div>						                           
-                </nav>						
-            </div>
-            <div class="row">						
-                <div class="col text-center mx-auto">												           
-                    <p class="text-center text-warning">						           
-                        © 2021 - ORINICO - Tous droits réservés
-                    </p>						                           
+                    </div>
                 </div>
-            </div>						
-        </div>					 
+                <div class="card bg-dark col-11 col-md-7  mx-auto my-1 border-0">
+                    <div class="card-body">
+                        <p class="text-left text-white h6 font-weight-bold my-1">Nos autres sites</p>
+                        <ul class="list-group">
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Orin'ours</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoLivres</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoTextile</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoCuisine</a></li>
+                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Orin'Informatique</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="text-center text-white font-weight-bold col-11 mx-auto small my-3">© 2021 - ORINICO - Tous droits réservés</p>
+            </div>						 
     </footer>
     <!-- Fin du footer -->
 
