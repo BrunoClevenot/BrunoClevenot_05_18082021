@@ -7,8 +7,10 @@
     <link rel="shortcut icon" type="images/png" href="logo-chariot.png">
 
     <!-- Liens vers polices, icones fontawesome -->
+    <!-- Liens vers polices, icones fontawesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
@@ -17,7 +19,7 @@
     <style>
         .jumbotron {
             background-image: url("../images/minicam.jpg");
-            background-size: 50% 100%;
+            background-size: contain;
         }
     </style>
 
@@ -64,12 +66,13 @@
 
             <div class="row bg-light border-0 rounded my-5">
                 <div class="col text=center mx-auto">
-                    <h2 class="col font-weight-bold text-white text-center mx-auto my-2">FACTURATION</h2>
+                    <h2 class="col font-weight-bold text-white text-center mx-auto my-2">CONFIRMATION DE COMMANDE</h2>
                 </div>
             </div>
 
-            <div class="row mb-3 text-center">
-                <table class="col-11 text-center my-3 mx-auto table-warning text-primary border-0 rounded" >
+            <div class="row mb-5 text-center bg-warning">
+
+                <table class="col-12 col-md-7 table-light text-center my-3 mx-auto text-primary rounded" >
                     <thead>
                         <tr class="font-weight-bold h4">
                             <th>Produits</th>
@@ -104,18 +107,46 @@
                             <td>-</td>
                         </tr>
                     </tbody>
-                </table>   
-            </div>
+                </table>
 
+                <div class="col-11 col-md-4 text-center my-3 mx-auto table-warning text-primary rounded"> 
+                    <form>
+                        <div class="form-group">
+                            <label for="civilite" class="font-weight-bold h6 text-primary mt-1 mb-1">Civilité :</label>						
+                            <select name="civilite" id="civilite" class="form-control mt-1 mb_1" placeholder="NOM" aria-describedby="civilité" required>
+                                <option value="madame">Madame</option>
+                                <option value="Monsieur">Monsieur</option>
+                            </select>					
+                            <label for="nom" class="font-weight-bold h6 text-primary mt-1 mb-1">Nom :</label>						
+                            <input type="text" class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="prénom" required>							
+                            <label for="prenom" class="font-weight-bold h6 text-primary mt-1 mb-1">Prénom :</label>						
+                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="NOM" required>	
+                            <label for="adresse" class="font-weight-bold h6 text-primary mt-1 mb-1">Adresse :</label>						
+                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" required>
+                            <label for="codepostal" class="font-weight-bold h6 text-primary mt-1 mb-1">CP :</label>						
+                            <input type="text" class="form-control mt-1 mb-1" id="codepostal" placeholder="Code postal" aria-describedby="Code Postal" required>					
+                            <label for="ville" class="font-weight-bold h6 text-primary mt-1 mb-1">Ville :</label>						
+                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" required>
+                            <label for="mail" class="font-weight-bold h6 text-primary mt-1 mb-1">e-mail :</label>						
+                            <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" required>
+                            <label for="telephone" class="font-weight-bold h6 text-primary mt-1 mb-1">Numéro de portable :</label>						
+                            <input type="text" class="form-control mt-1 mb-1" id="telephone" placeholder="Téléphone" aria-describedby="Téléphone" required>
+                        </div>
+                    </form>          
+                    </div>
+                </div>
+            </div>
+            
             <div class="row mb-5">
-                <button type="button" class="btn btn-warning text-white col-11 col-md-3 mx-auto "><strong class="h5 font-weight-bold"> Payer votre facture</strong></button>
+                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto "><strong class="h5 font-weight-bold">Valider votre commande</strong></button>
+                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto "><strong class="h5 font-weight-bold">Continuer vos achats</strong></button>
             </div>
 
         </div>
     <!-- Fin de la section principale-->
 
     <!-- Footer -->
-    <footer class="bg-dark my-3">
+    <footer class="bg-dark mt-3">
         <div class="container">						
             <div class="row">
                 <p class="text-center text-white font-weight-bold col-11 mx-auto h5 my-3">LE GROUPE ORINICO</p>
