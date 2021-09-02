@@ -14,11 +14,14 @@
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css" />
-
+    <script defer src="/js/index.js"></script>
     <style>
         .jumbotron {
             background-image: url("../images/minicam.jpg");
             background-size: contain;
+        }
+        a.no-underline:link{
+            text-decoration: none;
         }
     </style>
 
@@ -67,58 +70,23 @@
                     <h2 class="col-12 font-weight-bold text-dark text-center mx-auto my-2">PRÉSENTATION DE NOS PRODUITS</h2>
                 </div>
             </div>
-            <div class="row mb-3 text-center">
+
+            <article id="card-box" class="row mb-3 text-center">
+                
+            </article>
+
+            <template id="template-card-box">
                 <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
-                    <a href="produit.html">
-                        <img class="card-img-top my-2" src="../images/vcam_1.jpg" alt="Appareil photo rétro 1">
+                    <a id="" href="produit.html" class="no-underline">
+                        <img class="card-img-top my-2" src="" alt="Appareil photo rétro">
                         <div class="card-body">
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
+                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                            <p class="text-left text-secondary my-0 mb-2"></p>
+                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
                         </div>
                     </a>
                 </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
-                    <a href="produit.html">
-                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_2.jpg" alt="Appareil photo rétro 1">
-                        <div class="card-body">
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
-                    <a href="produit.html">
-                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_3.jpg" alt="Appareil photo rétro 1">
-                        <div class="card-body">
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
-                    <a href="produit.html">
-                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_4.jpg" alt="Appareil photo rétro 1">
-                        <div class="card-body">
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
-                    <a href="produit.html">
-                        <img class="card-img-top my-2 mx-auto" src="../images/vcam_5.jpg" alt="Appareil photo rétro 1">
-                        <div class="card-body">
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 <p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold"> Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Prix :</strong> 49,90 €</p>
-                        </div>
-                    </a>
-                </div>
-            </div>                             
+            </template>                           
         </section>
     </main>
     <!-- Fin de la section principale-->
@@ -165,7 +133,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+    
 </body>
 
 </html>
