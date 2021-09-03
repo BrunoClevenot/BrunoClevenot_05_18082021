@@ -15,11 +15,15 @@
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    
+    <script defer src="/js/produit.js"></script>
     <style>
         .jumbotron {
             background-image: url("../images/minicam.jpg");
             background-size: contain;
+        }
+        .inline{
+            display: flex;
+            flex-direction: row;
         }
     </style>
 
@@ -69,27 +73,38 @@
                 </div>
             </div>
 
-            <div class="row mb-5 text-center">
+            <div class="row bg-white border-0 rounded my-5">
+                <div class="col-12 text-center mx-auto">
+                    <p id="idrecup" class="text-dark text-center mx-auto my-2"></p>
+                </div>
+            </div>
+
+            <article class="row mb-5 text-center">
+                
+            </article>
+
+            <template id="template-card-choice">
                 <div class="card bg-warning col-11 col-md-7 mx-auto my-1 border-0 rounded">
-                    <img class="card-img-top my-3" src="../images/vcam_1.jpg" alt="Appareil photo rétro 1">
+                    <img class="card-img-top my-3" src="../images/vcam_1.jpg" alt="Appareil photo rétro">
                     <div class="card-body">
                         <form>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Nom :</strong> ZURSS 50 S </p>
-                                <p class="text-left text-white my-0"> <strong class="text-danger font-weight-bold">Description :</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                                <p class="text-left text-secondary my-0 mb-2"></p>
                             </div>
-                            <div class="form-group text-left my-0">
-                                <strong class="text-danger font-weight-bold">Lentilles : </strong>
-                                <select name="Lentille" size="1">
-                                    <option value="lense1" width="24" selected>Lense 1</option> 
-                                    <option value="lense2" size="24" >Lense 2</option>
-                                    </select> 
+                            <div class="form-group text-left my-0 inline">
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Lentilles : </p>
+                                <select id="lentilles" name="Lentille" size="1">
+                                    <option value="lense1" width="30" selected></option> 
+                                    <option value="lense2" width="30" ></option>
+                                </select> 
                             </div>
                             <div class="form- text-left my-0">
-                                <p class="text-left text-white"> <strong class="text-danger font-weight-bold">Prix unitaire:</strong> 49,90 €</p>
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
                             </div>
-                            <div class="form-group text-left my-0">
-                                <strong class="text-danger font-weight-bold">Quantité :</strong> <select name="price" size="1">
+                            <div class="form-group text-left my-0 inline">
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Quantité : </p>
+                                <select name="price" size="1">
                                     <option value="0">0</option>
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
@@ -99,12 +114,12 @@
                                 </select> 
                             </div>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-white"> <strong class="text-danger font-weight-bold">Prix total:</strong> 49,90 €</p>
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
+            </template>
 
             <div class="row mb-5 text-center">
                 <button type="button" class="btn btn-warning text-white col-11 col-md-5 font-weight-bold mx-auto my-0 "><strong class="h5 font-weight-bold"> Acheter</strong></button>
