@@ -25,6 +25,9 @@
             display: flex;
             flex-direction: row;
         }
+        a.no-underline:link{
+            text-decoration: none;
+        }
     </style>
 
     <title>Orinocam - Produits sélectionnés</title>
@@ -73,39 +76,27 @@
                 </div>
             </div>
 
-            <div class="row bg-white border-0 rounded my-5">
-                <div class="col-12 text-center mx-auto">
-                    <p id="idrecup" class="text-dark text-center mx-auto my-2"></p>
-                </div>
-            </div>
-
-            <article class="row mb-5 text-center">
-                
-            </article>
-
-            <template id="template-card-choice">
+            <article id="card-choice" class="row mb-5 text-center">
                 <div class="card bg-warning col-11 col-md-7 mx-auto my-1 border-0 rounded">
-                    <img class="card-img-top my-3" src="../images/vcam_1.jpg" alt="Appareil photo rétro">
+                    <img id="image" class="card-img-top my-3" src="" alt="Appareil photo rétro">
                     <div class="card-body">
                         <form>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
-                                <p class="text-left text-secondary my-0 mb-2"></p>
+                                <p id= "nom" class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                                <p id = "description" class="text-left text-secondary my-0 mb-2"></p>
                             </div>
                             <div class="form-group text-left my-0 inline">
                                 <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Lentilles : </p>
                                 <select id="lentilles" name="Lentille" size="1">
-                                    <option value="lense1" width="30" selected></option> 
-                                    <option value="lense2" width="30" ></option>
+                                    
                                 </select> 
                             </div>
                             <div class="form- text-left my-0">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                                <p id="prix-unitaire" class="text-left text-secondary my-0 mb-2 font-weight-bold lead"></p>
                             </div>
                             <div class="form-group text-left my-0 inline">
                                 <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Quantité : </p>
-                                <select name="price" size="1">
-                                    <option value="0">0</option>
+                                <select id="nombre" name="nombre" size="1" onchange="globalPrice()">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -114,16 +105,16 @@
                                 </select> 
                             </div>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                                <p id="prix-total" class="text-left text-secondary my-0 mb-2 font-weight-bold lead"></p>
                             </div>
                         </form>
                     </div>
                 </div>
-            </template>
+            </article>
 
             <div class="row mb-5 text-center">
                 <button type="button" class="btn btn-warning text-white col-11 col-md-5 font-weight-bold mx-auto my-0 "><strong class="h5 font-weight-bold"> Acheter</strong></button>
-                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mt-5 mt-md-0 "><strong class="h5 font-weight-bold"> Retour à l'accueil</strong></button>
+                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mt-5 mt-md-0 "><a href="index.html" class="h5 font-weight-bold text-white no-underline"> Retour à l'accueil</a></button>
             </div>
         </section>
     </main>
