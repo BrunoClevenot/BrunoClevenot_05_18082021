@@ -1,10 +1,15 @@
 // produit.js
 
+
+// Définition de l'id recherchée
 const url = window.location.href;
 const urlObj = new URL(url);
 const idTrouvee = urlObj.searchParams.get("id");
+
+//Définition du prix unitaire
 let prixUnitaire=0;
 
+// Fonction de calcul du prix global
 function globalPrice(){
     let element = document.getElementById("nombre");
     let nbre = element.value;
@@ -25,6 +30,7 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
         prixUnitaire=value.price/100;
         console.log(prixUnitaire);
         console.log(value);
+        console.log(value.length)
         console.log(value.imageUrl);
         document.getElementById("nom").innerText="Nom : " + value.name;
         document.getElementById("description").innerText="Description : " + value.description;
@@ -36,9 +42,11 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
                 option.text=value.lenses[i];
                 option.setAttribute("value",value.lenses[i]);
                 if (i ===0){
+                    opt.append(option);
                     option.selected=true;
-                }            
-                opt.append(option);
+                }else{            
+                    opt.append(option);
+                }
             }
         }
         document.getElementById("prix-unitaire").innerText="Prix unitaire : " + value.price/100 +" €";
