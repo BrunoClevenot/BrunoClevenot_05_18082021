@@ -6,6 +6,18 @@ const url = window.location.href;
 const urlObj = new URL(url);
 const idTrouvee = urlObj.searchParams.get("id");
 
+// Constructeur d'Appareil
+class AppareilPhoto{
+	constructor(id, image, nom, lentille, prix, nombreArticles) {
+		this.id = id;
+		this.image = image;
+		this.nom = nom;
+		this.lentille = lentille;
+		this.prix = prix;
+		this.nombreArticles = nombreArticles;
+	}
+}
+
 // Fonction de calcul du prix global
 function globalPrice(ev,value){
     let element = document.getElementById("nombre");
@@ -67,3 +79,57 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
         }
         console.log("Erreur : "+ err);
     })
+
+// Fonction de récuparation des appareils du panier
+function getCameras(){
+    let cameras=[];
+    if (localStorage.getItem("cameras") !== null) {
+        // Si panier rempli, on récupère
+		cameras = JSON.parse(localStorage.getItem("cameras"));
+	}
+    console.log(cameras);
+	return cameras;
+}
+
+// fonction de vérification  : regarde si article dans panier
+// L'ajoute si non trouvé, le modifie si trouvé
+function addCamera(camera){
+    // On récupère les appareils du panier
+    const cam=getCameras();
+    console.log(cam);
+    // Création d'une variable pour savoir si l'appareil choisi est déjà dans le panier
+    let trouve=false;
+    // On boucle pour savoir si le produit est déjà dans le panier
+    for (let i = 0; i < cam.length; i++) {
+		if (cam[i].id === id && cam[i].lense === camera.lentille) {
+            // Même appareil avec même lentille trouvé
+            // On rajoute donc le nombre d'articles en plus dans l'enregistrement
+			cam[i].nombreArticles += camera.nombreArticles;
+            // On place la variable trouve à true
+			trouve=true;
+		}
+        // Si l'article n'a pas été trouvé, on le rajoute au panier
+        if (trouve=false){
+            cam.push(camera);
+        }	
+    }
+}
+
+// fonction d'ajout d'un appareil au panier
+document.querySelector("#validePanier").addEventListener("click", (ajout) => {
+    // On récupère les valeurs
+	const image = document.querySelector("#image").src;
+	const nom = document.querySelector(".slot-nom").innerText;
+    const selLense=document.querySelector("#lentilles");
+    console.log(selLense);
+	const lentille = selLense.options[selLense.selectedIndex].value;
+    console.log(lentille);
+    const prix=document.querySelector(".slot-prix").innerText;
+    const selArticle=document.querySelector("#nombre");
+    let nombreArticles= selArticle.options[selArticle.selectedIndex].value;
+    // On crée un objet
+    const camera = new AppareilPhoto(idTrouvee,image,nom,lentille,prix,nombreArticles);
+    console.log(camera);
+    // On l'ajoute ou on le modifie dans le panier
+    addCamera(camera);
+});
