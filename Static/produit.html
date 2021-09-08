@@ -77,13 +77,18 @@
             </div>
 
             <article id="card-choice" class="row mb-5 text-center">
+                
+            </article>
+
+            <!-- Template d'affichage des données --> 
+            <template id="template-card-box-produit">
                 <div class="card bg-warning col-11 col-md-7 mx-auto my-1 border-0 rounded">
                     <img id="image" class="card-img-top my-3" src="" alt="Appareil photo rétro">
                     <div class="card-body">
                         <form>
                             <div class="form-group text-left my-0">
-                                <p id= "nom" class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
-                                <p id = "description" class="text-left text-secondary my-0 mb-2"></p>
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Nom : <span class="slot-nom"></span></span></p>
+                                <p class="text-left text-secondary my-0 mb-2">Description : <span class="slot-description"></span></p>
                             </div>
                             <div class="form-group text-left my-0 inline">
                                 <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Lentilles : </p>
@@ -92,11 +97,11 @@
                                 </select> 
                             </div>
                             <div class="form- text-left my-0">
-                                <p id="prix-unitaire" class="text-left text-secondary my-0 mb-2 font-weight-bold lead"></p>
+                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead">Prix : <span class="slot-prix"></span> €</p>
                             </div>
                             <div class="form-group text-left my-0 inline">
                                 <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Quantité : </p>
-                                <select id="nombre" name="nombre" size="1" onchange="globalPrice()">
+                                <select id="nombre" name="nombre" size="1">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -105,12 +110,21 @@
                                 </select> 
                             </div>
                             <div class="form-group text-left my-0">
-                                <p id="prix-total" class="text-left text-secondary my-0 mb-2 font-weight-bold lead"></p>
+                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead">Prix : <span id="prix-total" class="slot-prix-total"></span> €</p>
                             </div>
                         </form>
                     </div>
                 </div>
-            </article>
+            </template> 
+            
+            <!-- Template d'affichage des erreurs --> 
+            <template id="template-error-produit">
+                <div class="card bg-warning col-11 mx-auto mb-5 border-0 rounded">
+                    <div class="card-body">
+                        <p class="text-left text-white my-0 mb-2 font-weight-bold lead"><span class="slot-noData-1"></span><br><br><span class="slot-noData-2"></span></p>
+                    </div>
+                </div>
+            </template>
 
             <div class="row mb-5 text-center">
                 <button type="button" class="btn btn-warning text-white col-11 col-md-5 font-weight-bold mx-auto my-0 "><strong class="h5 font-weight-bold"> Acheter</strong></button>

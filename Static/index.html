@@ -75,18 +75,28 @@
                 
             </article>
 
+            <!-- Template d'affichage des données --> 
             <template id="template-card-box">
                 <div class="card bg-warning col-11 col-md-5 mx-auto mb-5 border-0 rounded">
                     <a href="" class="no-underline">
                         <img class="card-img-top my-2" src="" alt="Appareil photo rétro">
                         <div class="card-body">
-                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
-                            <p class="text-left text-secondary my-0 mb-2"></p>
-                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead"></p>
+                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Nom : <span class="slot-nom"></span></p>
+                            <p class="text-left text-secondary my-0 mb-2">Description : <span class="slot-description"></span></p>
+                            <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Prix : <span class="slot-prix"></span> €</p>
                         </div>
                     </a>
                 </div>
-            </template>                           
+            </template> 
+            
+            <!-- Template d'affichage des erreurs --> 
+            <template id="template-error-index">
+                <div class="card bg-warning col-11 mx-auto mb-5 border-0 rounded">
+                    <div class="card-body">
+                        <p class="text-left text-white my-0 mb-2 font-weight-bold lead"><span class="slot-noData-1"></span><br><br><span class="slot-noData-2"></span></p>
+                    </div>
+                </div>
+            </template>
         </section>
     </main>
     <!-- Fin de la section principale-->
