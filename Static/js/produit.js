@@ -97,10 +97,13 @@ function addCamera(camera){
     // On récupère les appareils du panier
     const cameras=getCameras();
     console.log(cameras);
+    console.log(camera);
+    
     // Création d'une variable pour savoir si l'appareil choisi est déjà dans le panier
     let trouve=false;
     // On boucle pour savoir si le produit est déjà dans le panier
     for (let i = 0; i < cameras.length; i++) {
+        console.log(camera);
         console.log(cameras[i]);
         console.log(cameras[i].id);
         console.log(idTrouvee);
@@ -114,7 +117,7 @@ function addCamera(camera){
             // On rajoute donc le nombre d'articles en plus dans l'enregistrement
             console.log(cameras[i].nombreArticles);
             console.log(camera.nombreArticles);
-            console.log(cameras[i].nombreArticles+camera.nombreArticles)
+            console.log(cameras[i].nombreArticles+camera.nombreArticles);
 			cameras[i].nombreArticles += camera.nombreArticles;
             console.log(cameras[i].nombreArticles);
             // On place la variable trouve à true
@@ -147,12 +150,15 @@ document.querySelector("#validePanier").addEventListener("click", (ajout) => {
     console.log(selLense);
 	const lentille = selLense.options[selLense.selectedIndex].value;
     console.log(lentille);
-    const prix=document.querySelector(".slot-prix").innerText;
+    let prix=document.querySelector(".slot-prix").innerText;
+    prix = Number(prix);
     const selArticle=document.querySelector("#nombre");
     let nombreArticles= selArticle.options[selArticle.selectedIndex].value;
+    nombreArticles=Number(nombreArticles);
     // On crée un objet
     const camera = new AppareilPhoto(idTrouvee,image,nom,lentille,prix,nombreArticles);
     console.log(camera);
     // On l'ajoute ou on le modifie dans le panier
     addCamera(camera);// On ajoute l'objet
+    
 });
