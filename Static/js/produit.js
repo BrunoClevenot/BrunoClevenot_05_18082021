@@ -101,10 +101,22 @@ function addCamera(camera){
     let trouve=false;
     // On boucle pour savoir si le produit est déjà dans le panier
     for (let i = 0; i < cameras.length; i++) {
-		if (cameras[i].id === idTrouvee && cameras[i].lense === camera.lentille) {
+        console.log(cameras[i]);
+        console.log(cameras[i].id);
+        console.log(idTrouvee);
+        console.log(cameras[i].lentille);
+        console.log(camera.lentille);
+		if (cameras[i].id === idTrouvee && cameras[i].lentille === camera.lentille) {
+            console.log(cameras[i].id);
+            console.log(idTrouvee);
+            console.log(cameras[i].lentille === camera.lentille);
             // Même appareil avec même lentille trouvé
             // On rajoute donc le nombre d'articles en plus dans l'enregistrement
+            console.log(cameras[i].nombreArticles);
+            console.log(camera.nombreArticles);
+            console.log(cameras[i].nombreArticles+camera.nombreArticles)
 			cameras[i].nombreArticles += camera.nombreArticles;
+            console.log(cameras[i].nombreArticles);
             // On place la variable trouve à true
 			trouve=true;
 		}
@@ -120,6 +132,11 @@ function addCamera(camera){
     localStorage.setItem("cameras", JSON.stringify(cameras));
 }
 
+function removeCamera(){
+    let cameras=[];
+    localStorage.setItem("cameras", JSON.stringify(cameras));
+    console.log(cameras);
+}
 // fonction d'ajout d'un appareil au panier
 document.querySelector("#validePanier").addEventListener("click", (ajout) => {
     // On récupère les valeurs
