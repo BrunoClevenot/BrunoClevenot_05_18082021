@@ -95,29 +95,35 @@ function getCameras(){
 // L'ajoute si non trouvé, le modifie si trouvé
 function addCamera(camera){
     // On récupère les appareils du panier
-    const cam=getCameras();
-    console.log(cam);
+    const cameras=getCameras();
+    console.log(cameras);
     // Création d'une variable pour savoir si l'appareil choisi est déjà dans le panier
     let trouve=false;
     // On boucle pour savoir si le produit est déjà dans le panier
-    for (let i = 0; i < cam.length; i++) {
-		if (cam[i].id === id && cam[i].lense === camera.lentille) {
+    for (let i = 0; i < cameras.length; i++) {
+		if (cameras[i].id === idTrouvee && cameras[i].lense === camera.lentille) {
             // Même appareil avec même lentille trouvé
             // On rajoute donc le nombre d'articles en plus dans l'enregistrement
-			cam[i].nombreArticles += camera.nombreArticles;
+			cameras[i].nombreArticles += camera.nombreArticles;
             // On place la variable trouve à true
 			trouve=true;
 		}
-        // Si l'article n'a pas été trouvé, on le rajoute au panier
-        if (trouve=false){
-            cam.push(camera);
-        }	
     }
+    // Si l'article n'a pas été trouvé, on le rajoute au panier
+    console.log(trouve);
+    if (trouve===false){
+        cameras.push(camera);
+        console.log(camera);
+        console.log(cameras); 
+    }
+    // On envoie le panier au serveur	
+    localStorage.setItem("cameras", JSON.stringify(cameras));
 }
 
 // fonction d'ajout d'un appareil au panier
 document.querySelector("#validePanier").addEventListener("click", (ajout) => {
     // On récupère les valeurs
+    ajout.preventDefault();
 	const image = document.querySelector("#image").src;
 	const nom = document.querySelector(".slot-nom").innerText;
     const selLense=document.querySelector("#lentilles");
@@ -131,5 +137,5 @@ document.querySelector("#validePanier").addEventListener("click", (ajout) => {
     const camera = new AppareilPhoto(idTrouvee,image,nom,lentille,prix,nombreArticles);
     console.log(camera);
     // On l'ajoute ou on le modifie dans le panier
-    addCamera(camera);
+    addCamera(camera);// On ajoute l'objet
 });
