@@ -15,7 +15,7 @@
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css" />
-
+    <script defer src="/js/panier.js"></script>
     <style>
         .jumbotron {
             background-image: url("../images/minicam.jpg");
@@ -74,40 +74,33 @@
 
                 <table class="col-11 col-md-7 table-light text-center my-3 mx-auto text-primary rounded" >
                     <thead>
-                        <tr class="font-weight-bold h4">
-                            <th>Produits</th>
+                        <tr class="font-weight-bold lead">
+                            <th>Produits<br>Lentilles</th>
                             <th>Prix unitaire</th>
                             <th>Quantité</th>
                             <th>Prix total</th>
                         </tr>
                     </thead>
                     <tfoot class="text-danger">
-                        <tr class="font-weight-bold h4">
+                        <tr class="font-weight-bold lead">
                             <th colspan="3" class="text-right">Total facture :</th>
-                            <th>-</th>
+                            <th class="Total"></th>
                         </tr>
                     </tfoot>
                     <tbody>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                        </tr>
+                        
+                        
                     </tbody>
                 </table>
+                <!-- Template d'affichage des données --> 
+                <template id="recapitulatif-produit">
+                    <tr>
+                        <td class="produitLentille"><br class="slot-lentille"></td>
+                        <td class="prixUnitaire"></td>
+                        <td class="quantite"></td>
+                        <td class="prixTotal"></td>
+                    </tr>
+                </template>
 
                 <div class="col-11 col-md-4 text-center my-3 mx-auto table-warning text-primary rounded"> 
                     <form>

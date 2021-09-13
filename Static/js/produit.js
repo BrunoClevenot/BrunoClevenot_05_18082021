@@ -83,9 +83,9 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
 // Fonction de récuparation des appareils du panier
 function getCameras(){
     let cameras=[];
-    if (localStorage.getItem("cameras") !== null) {
+    if (sessionStorage.getItem("cameras") !== null) {
         // Si panier rempli, on récupère
-		cameras = JSON.parse(localStorage.getItem("cameras"));
+		cameras = JSON.parse(sessionStorage.getItem("cameras"));
 	}
     console.log(cameras);
 	return cameras;
@@ -132,12 +132,12 @@ function addCamera(camera){
         console.log(cameras); 
     }
     // On envoie le panier au serveur	
-    localStorage.setItem("cameras", JSON.stringify(cameras));
+    sessionStorage.setItem("cameras", JSON.stringify(cameras));
 }
 
 function removeCamera(){
     let cameras=[];
-    localStorage.setItem("cameras", JSON.stringify(cameras));
+    sessionStorage.setItem("cameras", JSON.stringify(cameras));
     console.log(cameras);
 }
 // fonction d'ajout d'un appareil au panier
