@@ -52,7 +52,10 @@ function affichage(){
 		body.appendChild(clone);
 	}
 	let spanTotal = document.querySelector(".Total");
-	spanTotal.textContent=prixFactureTotal + " €";
+	if (prixFactureTotal>0){
+		spanTotal.textContent=prixFactureTotal + " €";
+	}
+	
 }
 
 // Affichage
