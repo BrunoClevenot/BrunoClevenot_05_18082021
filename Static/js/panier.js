@@ -13,6 +13,17 @@ class AppareilPhoto{
 	}
 }
 
+// Constructeur d'objet contact
+class BuildContact{
+	constructor(firstName,lastName,adress,city, email){
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.adress=adress;
+		this.city=city;
+		this.email=email;
+	}
+}
+
 // Fonction de récuparation des appareils du panier
 function getCameras(){
     let cameras=[];
@@ -61,8 +72,98 @@ function affichage(){
 // Affichage
 affichage();
 
-//Calcul prix total d'un produit
+// Calcul prix total d'un produit
 function prixproduitTotal(prix, nombre){
 	let ppt = prix * nombre;
 	return ppt;
 }
+
+const elementNom=document.getElementById("nom");
+const elementPrenom=document.getElementById("prenom");
+const elementAdresse=document.getElementById("adresse");
+const elementVille=document.getElementById("ville");
+const elementMail=document.getElementById("mail");
+elementNom.addEventListener("focusout",majusculeNom);
+elementPrenom.addEventListener("focusout",majusculePrenom);
+elementAdresse.addEventListener("focusout",majusculeAdresse);
+elementVille.addEventListener("focusout",majusculeVille);
+
+// Fonction de validation du contact
+function isValidlettre(value) {				
+	return /[A-ZÀ-ÝŸ ]$/.test(value);						
+}
+function isValidLongueur(valeur){
+	if (valeur.lenght>1 && valeur.lenght<=250){
+		return true
+	}else{
+		return false
+	}	
+}	
+let validNomLettre=isValidlettre(nom);
+console.log(validNomLettre);	
+let validNomLongueur=isValidLongueur(nom);
+console.log(validNomLongueur);
+console.log(nom);
+console.log(nom.lenght);
+
+// Fonctions de mise en majuscules
+function majusculeNom(){
+	let nom = elementNom.value;
+	nom=nom.toUpperCase()
+	elementNom.value=nom;
+}
+function majusculePrenom(){
+	let prenom = elementPrenom.value;
+	prenom=prenom.toUpperCase()
+	elementPrenom.value=prenom;
+}
+function majusculeAdresse(){
+	let adresse=elementAdresse.value;
+	adresse=adresse.toUpperCase();
+	elementAdresse.value=adresse;
+}
+function majusculeVille(){
+	let ville=elementVille.value;
+	ville=ville.toUpperCase();
+	elementVille.value=ville;
+}
+	
+function validContact(){
+	let valid=true;
+	const chiffres=["1","2","3","4","5","6","7","8","9","0"];
+	for (let i = 0;i<nom.length;i++){
+		if (nom[i] in chiffres){
+			valid=false;
+			break;
+		}
+	}
+	console.log(valid);
+	if (valid==true){
+
+	}
+}
+validContact();
+
+// Fonction création objet Contact
+function createContact(){
+	const elementNom=document.getElementById("nom");
+	
+	nom=nom.toUpperCase();
+	elementNom.value=nom;
+	const elementPrenom=document.getElementById("prenom");
+	let prenom1=elementPrenom.value;
+	prenom1=prenom1.toLowerCase()
+	let premiereLettre=prenom1[0];
+	premiereLettre=premiereLettre.toUpperCase();
+	let prenom=premiereLettre;
+	for (let i=1;i<prenom1.length;i++){
+		prenom +=prenom1[i]
+	}
+	elementPrenom.value=prenom;
+	console.log(prenom);
+	console.log(nom);
+	const contact = BuildContact(firstname,lastName,adress,city,email);
+	return contact;
+}
+
+createContact();

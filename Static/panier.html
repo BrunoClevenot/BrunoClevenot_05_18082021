@@ -136,17 +136,17 @@
                     <form>
                         <div class="form-group">				
                             <label for="nom" class="font-weight-bold h6 text-primary mt-1 mb-1">Nom :</label>						
-                            <input type="text" class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="NOM" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>							
-                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée.</p>
+                            <input type="text" onfocusout=majuscule class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="NOM" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>							
+                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON AUTORISÉS.</p>
                             <label for="prenom" class="font-weight-bold h6 text-primary mt-1 mb-1">Prénom :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="Prénom" pattern="[A-Za-zÀ-ÿŸ ]{2,250}" title="2 à 250 lettres en majuscule ou minuscule" required>	
-                            <p class="little">2 à 250 lettres en majuscule ou minuscule. Espace autorisée</p>
+                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="Prénom" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>	
+                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON AUTORISÉS.</p>
                             <label for="adresse" class="font-weight-bold h6 text-primary mt-1 mb-1">Adresse :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" pattern="[0-9]{0,5}[ ]{0,1}[A-Za-zÀ-ÿ0-9Ÿ ]{2,250}" title="2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alfanumériques" required>					
-                            <p class="little">2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alphanumériques.</p>
+                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" pattern="[0-9]{0,5}[ ]{0,1}[A-ZÀ-ÝŸ ]{2,250}" title="2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alfanumériques" required>					
+                            <p class="little">2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alphanumériques (majuscule).</p>
                             <label for="ville" class="font-weight-bold h6 text-primary mt-1 mb-1">Ville :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" pattern="[0-9]{5}[ ]{1}[A-Za-zÀ-ÿŸ ]{2,250}" title="5chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique" required>
-                            <p class="little">5 chiffres suivi d'une espace et de 2 à 250 caractères alphanumériques. Espace autorisée.</p>
+                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" pattern="[0-9]{5}[ ]{1}[A-ZÀ-ÝŸ ]{2,250}" title="5chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique" required>
+                            <p class="little">5 chiffres suivi d'une espace et de 2 à 250 caractères alphanumériques (majuscule). Espace autorisée.</p>
                             <label for="mail" class="font-weight-bold h6 text-primary mt-1 mb-1">e-mail :</label>						
                             <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" required>
                             <p class="little">Adresse e-mail complète (machin@bidule.com)</p>
