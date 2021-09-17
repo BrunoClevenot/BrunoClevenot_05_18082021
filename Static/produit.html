@@ -28,6 +28,9 @@
         a.no-underline:link{
             text-decoration: none;
         }
+        .littlep{
+            font-size: 0.91rem;
+        }
     </style>
 
     <title>Orinocam - Produits sélectionnés</title>
@@ -87,21 +90,21 @@
                     <div class="card-body">
                         <form>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Nom : <span class="slot-nom"></span></span></p>
-                                <p class="text-left text-secondary my-0 mb-2">Description : <span class="slot-description"></span></p>
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead littlep">Nom : <span class="slot-nom"></span></span></p>
+                                <p class="text-left text-secondary my-0 mb-2 littlep">Description : <span class="slot-description"></span></p>
                             </div>
                             <div class="form-group text-left my-0 inline">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Lentilles : </p>
-                                <select id="lentilles" name="Lentille" size="1">
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead littlep">Lentilles : </p>
+                                <select id="lentilles" name="Lentille" size="1" class="littlep">
                                     
                                 </select> 
                             </div>
                             <div class="form- text-left my-0">
-                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead">Prix : <span class="slot-prix"></span> €</p>
+                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead littlep">Prix : <span class="slot-prix"></span> €</p>
                             </div>
                             <div class="form-group text-left my-0 inline">
-                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead">Quantité : </p>
-                                <select id="nombre" name="nombre" size="1">
+                                <p class="text-left text-white my-0 mb-2 font-weight-bold lead littlep">Quantité : </p>
+                                <select id="nombre" name="nombre" size="1" class="littlep">
                                     <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -110,7 +113,7 @@
                                 </select> 
                             </div>
                             <div class="form-group text-left my-0">
-                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead">Prix : <span id="prix-total" class="slot-prix-total"></span> €</p>
+                                <p class="text-left text-secondary my-0 mb-2 font-weight-bold lead littlep">Prix total : <span id="prix-total" class="slot-prix-total"></span> €</p>
                             </div>
                         </form>
                     </div>

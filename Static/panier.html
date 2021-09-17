@@ -28,7 +28,27 @@
             width:100%;
         }
         .height-fixed{
-            height:374px;
+            height:600px;
+        }
+        a.no-underline:link{
+            text-decoration: none;
+        }
+        input:invalid{
+            border: 2px red solid;
+        }
+        input:valid{
+            border: 2px green solid;
+        }
+        .little{
+            color:green;
+            font-size: 0.7rem;
+            font-style: italic;
+        }
+        .littlep{
+            font-size:0.9rem;
+        }
+        .width20{
+            min-width:75px;
         }
     </style>
 
@@ -83,7 +103,7 @@
                 <div class="col-11 col-md-7 table-light text-center my-3 mx-auto text-primary rounded table tabled">
                     <table class="width-max">
                         <thead>
-                            <tr class="font-weight-bold lead">
+                            <tr class="font-weight-bold lead littlep">
                                 <th>Produits<br>Lentilles</th>
                                 <th>P.U.</th>
                                 <th>Qté</th>
@@ -91,23 +111,23 @@
                             </tr>
                         </thead>
                         <tfoot class="text-danger">
-                            <tr class="font-weight-bold lead">
+                            <tr class="font-weight-bold lead littlep">
                                 <th colspan="2" class="text-right">Total facture :</th>
                                 <th colspan="2" class="Total"></th>
                             </tr>
                         </tfoot>
-                        <tbody>
+                        <tbody class="littlep">
                             
                             
                         </tbody>
                     </table>
                     <!-- Template d'affichage des données --> 
                     <template id="recapitulatif-produit">
-                        <tr>
+                        <tr class="littlep">
                             <td class="produitLentille"><br class="slot-lentille"></td>
-                            <td class="prixUnitaire"></td>
+                            <td class="prixUnitaire width20"></td>
                             <td class="quantite"></td>
-                            <td class="prixTotal"></td>
+                            <td class="prixTotal width20"></td>
                         </tr>
                     </template>
                 </div>
@@ -116,15 +136,20 @@
                     <form>
                         <div class="form-group">				
                             <label for="nom" class="font-weight-bold h6 text-primary mt-1 mb-1">Nom :</label>						
-                            <input type="text" class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="prénom" required>							
+                            <input type="text" class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="NOM" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>							
+                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée.</p>
                             <label for="prenom" class="font-weight-bold h6 text-primary mt-1 mb-1">Prénom :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="NOM" required>	
+                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="Prénom" pattern="[A-Za-zÀ-ÿŸ ]{2,250}" title="2 à 250 lettres en majuscule ou minuscule" required>	
+                            <p class="little">2 à 250 lettres en majuscule ou minuscule. Espace autorisée</p>
                             <label for="adresse" class="font-weight-bold h6 text-primary mt-1 mb-1">Adresse :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" required>					
+                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" pattern="[0-9]{0,5}[ ]{0,1}[A-Za-zÀ-ÿ0-9Ÿ ]{2,250}" title="2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alfanumériques" required>					
+                            <p class="little">2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alphanumériques.</p>
                             <label for="ville" class="font-weight-bold h6 text-primary mt-1 mb-1">Ville :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" required>
+                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" pattern="[0-9]{5}[ ]{1}[A-Za-zÀ-ÿŸ ]{2,250}" title="5chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique" required>
+                            <p class="little">5 chiffres suivi d'une espace et de 2 à 250 caractères alphanumériques. Espace autorisée.</p>
                             <label for="mail" class="font-weight-bold h6 text-primary mt-1 mb-1">e-mail :</label>						
                             <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" required>
+                            <p class="little">Adresse e-mail complète (machin@bidule.com)</p>
                         </div>
                     </form>          
                     </div>
