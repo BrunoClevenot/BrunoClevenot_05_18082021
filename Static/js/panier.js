@@ -35,7 +35,7 @@ function getCameras(){
 	return cameras;
 }
 
-const cameras=getCameras();
+let cameras=getCameras();
 console.log(cameras)
 for (let i = 0; i < cameras.length; i++) {
     console.log(cameras[i]);
@@ -54,6 +54,10 @@ function removeCamera(){
 function affichageArticle(){
 	
 	let body = document.querySelector("tbody");
+	while (body.firstChild){
+		body.removeChild(body.firstChild);
+	}
+	prixFactureTotal=0
 	console.log(cameras)
 	for (let i = 0; i < cameras.length; i++) {
 		console.log(cameras[i]);
@@ -72,6 +76,8 @@ function affichageArticle(){
 	let spanTotal = document.querySelector(".Total");
 	if (prixFactureTotal>0){
 		spanTotal.textContent=prixFactureTotal + " €";
+	}else{
+		spanTotal.textContent=""
 	}
 	
 }
@@ -159,7 +165,7 @@ function isValidLongueur(valeur){
 // Fonction création objet Contact
 function createContact(){
 	
-	const contact = BuildContact(nom,prenom,adresse,ville,mail);
+	const contact = new BuildContact(nom,prenom,adresse,ville,mail);
 	return contact;
 }
 
@@ -220,6 +226,8 @@ document.querySelector("#validContact").addEventListener("click", () => {
 document.querySelector("#supprimePanier").addEventListener("click", (remove) => {
 	// On supprime tous les appareils sélectionnés
 	removeCamera();
+	cameras=getCameras();
+	console.log(cameras);
 	// On affiche
 	affichageArticle();	
 });
