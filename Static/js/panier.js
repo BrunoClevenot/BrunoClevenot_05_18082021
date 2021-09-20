@@ -44,7 +44,7 @@ for (let i = 0; i < cameras.length; i++) {
 let prixFactureTotal=0;
 
 // Construction de la table des articles choisis
-function affichage(){
+function affichageArticle(){
 	
 	let body = document.querySelector("tbody");
 	console.log(cameras)
@@ -69,8 +69,8 @@ function affichage(){
 	
 }
 
-// Affichage
-affichage();
+// Affichage des articles
+affichageArticle();
 
 // Calcul prix total d'un produit
 function prixproduitTotal(prix, nombre){
@@ -78,35 +78,32 @@ function prixproduitTotal(prix, nombre){
 	return ppt;
 }
 
+// fonction récupération du contact
+function getContact(){
+	let contact={};
+	if (sessionStorage.getItem("contact") !== null) {
+		// Si contact rempli, on récupère
+		contact = JSON.parse(sessionStorage.getItem("contact"));
+	}
+	console.log(contact);
+	return contact;
+}
+
+let contactEnregistre=getContact();
+
+// recupération des valeurs et passage en majuscule
+// 1. Récupéraion des éléments
 const elementNom=document.getElementById("nom");
 const elementPrenom=document.getElementById("prenom");
 const elementAdresse=document.getElementById("adresse");
 const elementVille=document.getElementById("ville");
 const elementMail=document.getElementById("mail");
+// 2.1 Passage en majuscule
 elementNom.addEventListener("focusout",majusculeNom);
 elementPrenom.addEventListener("focusout",majusculePrenom);
 elementAdresse.addEventListener("focusout",majusculeAdresse);
 elementVille.addEventListener("focusout",majusculeVille);
-
-// Fonction de validation du contact
-function isValidlettre(value) {				
-	return /[A-ZÀ-ÝŸ ]$/.test(value);						
-}
-function isValidLongueur(valeur){
-	if (valeur.lenght>1 && valeur.lenght<=250){
-		return true
-	}else{
-		return false
-	}	
-}	
-let validNomLettre=isValidlettre(nom);
-console.log(validNomLettre);	
-let validNomLongueur=isValidLongueur(nom);
-console.log(validNomLongueur);
-console.log(nom);
-console.log(nom.lenght);
-
-// Fonctions de mise en majuscules
+// 2.2 Fonctions de mise en majuscules
 function majusculeNom(){
 	let nom = elementNom.value;
 	nom=nom.toUpperCase()
@@ -127,43 +124,80 @@ function majusculeVille(){
 	ville=ville.toUpperCase();
 	elementVille.value=ville;
 }
-	
-function validContact(){
-	let valid=true;
-	const chiffres=["1","2","3","4","5","6","7","8","9","0"];
-	for (let i = 0;i<nom.length;i++){
-		if (nom[i] in chiffres){
-			valid=false;
-			break;
-		}
-	}
-	console.log(valid);
-	if (valid==true){
 
+//Affichage du contact si présent
+function affichageContact{
+	let vide= isObjectEmpty(contactEnregistre);
+	if vide===false{
+		elementNom.value=contactEnregistre.firstName;
+		elementPrenom.value=contactEnregistre.lastName;
+		elementAdresse.value=contactEnregistre.adress;
+		elementVille.value=contactEnregistre.city;
+		elementMail.value=contactEnregistre.email;
 	}
 }
-validContact();
+
+// Fonctions de validation du contact
+function isValidlettre(value) {				
+	return /[A-ZÀ-ÝŸ ]$/.test(value);						
+}
+function isValidLongueur(valeur){
+	if (valeur.lenght>1 && valeur.lenght<=250){
+		return true
+	}else{
+		return false
+	}	
+}	
 
 // Fonction création objet Contact
 function createContact(){
-	const elementNom=document.getElementById("nom");
 	
-	nom=nom.toUpperCase();
-	elementNom.value=nom;
-	const elementPrenom=document.getElementById("prenom");
-	let prenom1=elementPrenom.value;
-	prenom1=prenom1.toLowerCase()
-	let premiereLettre=prenom1[0];
-	premiereLettre=premiereLettre.toUpperCase();
-	let prenom=premiereLettre;
-	for (let i=1;i<prenom1.length;i++){
-		prenom +=prenom1[i]
-	}
-	elementPrenom.value=prenom;
-	console.log(prenom);
-	console.log(nom);
-	const contact = BuildContact(firstname,lastName,adress,city,email);
+	const contact = BuildContact(nom,prenom,adresse,ville,mail);
 	return contact;
 }
 
-createContact();
+
+
+
+// fonction vérification objet vide
+function isObjectEmpty(object){
+	let isEmpty=true;
+	for (keys in objet){
+		isEmpty=false;
+		break;
+	}
+	return isEmpty
+}
+//fonction vérification du contact
+function verifContact(){
+	let searchContact= getContact();
+	let vide=isObjectEmpty(searchContact);
+	console.log(vide);
+	let nom=elementNom.value;
+	let prenom=elementPrenom.value;
+	let adresse=elementAdresse.value;
+	let ville=elementVille.value;
+	let mail=elementMail.value;
+	//On vérifie si les données sont bonnes
+	let valid = true;
+	valid = isValidlettre(nom);
+	if (valid===false){
+		return;
+	}
+	// si contact vide, création du contact
+	if (vide===true){
+		// création du contact
+		let newContact= createContact(nom,prenom,adresse,ville,mail);
+		// On envoie le contact au serveur
+		sessionStorage.setItem("contact", JSON.stringify(newContact));
+	}else{
+		//On modifie le contact
+		searchContact.firstName=nom;
+		searchContact.lastName=prenom;
+		searchContact.adress=adresse;
+		searchContact.city=ville;
+		searchContact.email=mail;
+		// On envoie le contact au serveur
+		sessionStorage.setItem("contact", JSON.stringify(searchContact));
+	}
+}
