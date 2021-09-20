@@ -49,5 +49,5 @@ fetch("http://localhost:3000/api/cameras")
             clone.querySelector(".slot-noData-2").textContent="Nous vous invitons à revenir ultérieurement.";
         }
         console.log("Erreur :" + err);
-    })
+    });
 	

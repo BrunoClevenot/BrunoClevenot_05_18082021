@@ -43,6 +43,13 @@ for (let i = 0; i < cameras.length; i++) {
 
 let prixFactureTotal=0;
 
+//Suppression des appareils sélectionnés
+function removeCamera(){
+    let cameras=[];
+    sessionStorage.setItem("cameras", JSON.stringify(cameras));
+    console.log(cameras);
+}
+
 // Construction de la table des articles choisis
 function affichageArticle(){
 	
@@ -162,7 +169,7 @@ function createContact(){
 // fonction vérification objet vide
 function isObjectEmpty(object){
 	let isEmpty=true;
-	for (keys in objet){
+	for (keys in object){
 		isEmpty=false;
 		break;
 	}
@@ -208,3 +215,11 @@ document.querySelector("#validContact").addEventListener("click", () => {
 	contactEnvoye=getContact();
 	console.log(contactEnvoye);
 });	
+
+//Suppression des appareils sélectionnés
+document.querySelector("#supprimePanier").addEventListener("click", (remove) => {
+	// On supprime tous les appareils sélectionnés
+	removeCamera();
+	// On affiche
+	affichageArticle();	
+});
