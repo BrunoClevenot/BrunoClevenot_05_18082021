@@ -126,9 +126,9 @@ function majusculeVille(){
 }
 
 //Affichage du contact si présent
-function affichageContact{
+function affichageContact(){
 	let vide= isObjectEmpty(contactEnregistre);
-	if vide===false{
+	if (vide===false){
 		elementNom.value=contactEnregistre.firstName;
 		elementPrenom.value=contactEnregistre.lastName;
 		elementAdresse.value=contactEnregistre.adress;
@@ -201,3 +201,10 @@ function verifContact(){
 		sessionStorage.setItem("contact", JSON.stringify(searchContact));
 	}
 }
+
+// Validation du contact
+document.querySelector("#validContact").addEventListener("click", () => {
+	verifContact();
+	contactEnvoye=getContact();
+	console.log(contactEnvoye);
+});	

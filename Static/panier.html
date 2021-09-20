@@ -148,18 +148,18 @@
                             <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" pattern="[0-9]{5}[ ]{1}[A-ZÀ-ÝŸ ]{2,250}" title="5chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique" required>
                             <p class="little">5 chiffres suivi d'une espace et de 2 à 250 caractères alphanumériques (majuscule). Espace autorisée.</p>
                             <label for="mail" class="font-weight-bold h6 text-primary mt-1 mb-1">e-mail :</label>						
-                            <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" required>
+                            <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" required>
                             <p class="little">Adresse e-mail complète (machin@bidule.com)</p>
                         </div>
                     </form>          
-                    <button type="button" class="btn btn-warning text-white"><strong class="h5 font-weight-bold">Valider les coordonnées</strong></button>
+                    <button type="button" id="validContact" class="btn btn-warning text-white"><strong class="h5 font-weight-bold">Valider les coordonnées</strong></button>
                 </div>
             </div>
             
             <div class="row mb-5">
-                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Valider le panier</strong></button>
+                <button type="button" id="validPanier" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Valider le panier</strong></button>
                 <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3  "><a href="index.html" class="h5 font-weight-bold text-white no-underline stretched-link"> Continuer vos achats</a></button>
-                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Annuler le panier</strong></button>
+                <button type="button" id="supprimePanier" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Annuler le panier</strong></button>
             </div>
 
         </section>
