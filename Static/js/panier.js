@@ -34,12 +34,6 @@ function getCameras() {
   return cameras;
 }
 
-let cameras = getCameras();
-console.log(cameras);
-for (let i = 0; i < cameras.length; i++) {
-  console.log(cameras[i]);
-}
-
 let prixFactureTotal = 0;
 
 //Suppression des appareils sélectionnés
@@ -52,6 +46,7 @@ function removeCamera() {
 // Construction de la table des articles choisis
 function affichageArticle() {
   let body = document.querySelector("tbody");
+  let cameras = getCameras();
   while (body.firstChild) {
     body.removeChild(body.firstChild);
   }
@@ -75,7 +70,8 @@ function affichageArticle() {
     console.log(cameras[i].nom);
     console.log(cameras[i].lentille);
     body.appendChild(clone);
-  }
+  }git addStatic
+  
   let spanTotal = document.querySelector(".Total");
   if (prixFactureTotal > 0) {
     spanTotal.textContent = prixFactureTotal + " €";
@@ -113,6 +109,7 @@ const elementPrenom = document.getElementById("prenom");
 const elementAdresse = document.getElementById("adresse");
 const elementVille = document.getElementById("ville");
 const elementMail = document.getElementById("mail");
+console.log(elementNom.value)
 // 2.1 Passage en majuscule
 elementNom.addEventListener("focusout", majusculeNom);
 elementPrenom.addEventListener("focusout", majusculePrenom);
@@ -144,29 +141,17 @@ function majusculeVille() {
 function affichageContact() {
   let vide = isObjectEmpty(contactEnregistre);
   if (vide === false) {
-    elementNom.value = contactEnregistre.firstName;
-    elementPrenom.value = contactEnregistre.lastName;
+    elementNom.value = contactEnregistre.lastName;
+    elementPrenom.value = contactEnregistre.firstName;
     elementAdresse.value = contactEnregistre.adress;
     elementVille.value = contactEnregistre.city;
     elementMail.value = contactEnregistre.email;
   }
 }
 
-// Fonctions de validation du contact
-function isValidlettre(value) {
-  return /[A-ZÀ-ÝŸ ]$/.test(value);
-}
-function isValidLongueur(valeur) {
-  if (valeur.lenght > 1 && valeur.lenght <= 250) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
 // Fonction création objet Contact
 function createContact() {
-  const contact = new BuildContact(nom, prenom, adresse, ville, mail);
+  const contact = new BuildContact(prenom, nom, adresse, ville, mail);
   return contact;
 }
 
@@ -179,45 +164,82 @@ function isObjectEmpty(object) {
   }
   return isEmpty;
 }
-//fonction vérification du contact
-function verifContact() {
+//fonction vérification et envoi du contact
+function envoiContact() {
   let searchContact = getContact();
   let vide = isObjectEmpty(searchContact);
+  let erreur=""
   console.log(vide);
   let nom = elementNom.value;
   let prenom = elementPrenom.value;
   let adresse = elementAdresse.value;
   let ville = elementVille.value;
   let mail = elementMail.value;
-  //On vérifie si les données sont bonnes
-  let valid = true;
-  valid = isValidlettre(nom);
-  if (valid === false) {
-    return;
+  //On vérifie si les données sont présentes et correctes
+  if (!nom || elementNom.validity.patternMismatch){
+    alert("Le champ NOM n'est pas ou est mal renseigné !!");
+    erreur="NOM";
   }
-  // si contact vide, création du contact
-  if (vide === true) {
-    // création du contact
-    let newContact = createContact(nom, prenom, adresse, ville, mail);
-    // On envoie le contact au serveur
-    sessionStorage.setItem("contact", JSON.stringify(newContact));
-  } else {
-    //On modifie le contact
-    searchContact.firstName = nom;
-    searchContact.lastName = prenom;
-    searchContact.adress = adresse;
-    searchContact.city = ville;
-    searchContact.email = mail;
-    // On envoie le contact au serveur
-    sessionStorage.setItem("contact", JSON.stringify(searchContact));
+  if (!erreur){
+    if (!prenom || elementPrenom.validity.patternMismatch){
+      alert("Le champ Prénom n'est pas ou est mal renseigné !!");
+      erreur="Prénom";
+    }
+  }
+  if (!erreur){
+    if (!adresse || elementAdresse.validity.patternMismatch){
+      alert("Le champ Adresse n'est pas ou est mal renseigné !!");
+      erreur="Adresse";
+    }
+  }
+  if (!erreur){
+    if (!ville || elementVille.validity.patternMismatch){
+      alert("Le champ Ville n'est pas ou est mal renseigné !!");
+      erreur="Ville";
+    }
+  }
+  if (!erreur){
+    if (!mail || elementMail.validity.patternMismatch){
+      console.log(elementMail.validity.patternMismatch)
+      alert("Le champ e-mail n'est pas ou est mal renseigné !!");
+      erreur="e-mail";
+    }
+  }
+  // Vérification du panier
+  if (!erreur){
+      let cameras=getCameras();
+      if (cameras.length==0){
+        alert("Aucun produit sélectionné !!");
+        erreur="Produit";
+      }
+  }
+  // Si pas d'erreur, enregistrer ou modifier le contact
+  if (erreur===""){
+    // si contact vide, création du contact
+    if (vide === true) {
+      // création du contact
+      let newContact = createContact(nom, prenom, adresse, ville, mail);
+      // On envoie le contact au serveur
+      sessionStorage.setItem("contact", JSON.stringify(newContact));
+    } else {
+      //On modifie le contact
+      searchContact.firstName = prenom;
+      searchContact.lastName = nom;
+      searchContact.adress = adresse;
+      searchContact.city = ville;
+      searchContact.email = mail;
+      // On envoie le contact au serveur
+      sessionStorage.setItem("contact", JSON.stringify(searchContact));
+    }
   }
 }
 
 // Validation du contact
-document.querySelector("#validContact").addEventListener("click", () => {
-  verifContact();
-  contactEnvoye = getContact();
-  console.log(contactEnvoye);
+document.querySelector("#validPanier").addEventListener("click", () => {
+  // Vérification et envoi du contact
+  envoiContact();
+  // Envoi du panier
+  envoiPanier();
 });
 
 //Suppression des appareils sélectionnés
@@ -226,8 +248,44 @@ document
   .addEventListener("click", (remove) => {
     // On supprime tous les appareils sélectionnés
     removeCamera();
-    cameras = getCameras();
+    let cameras = getCameras();
     console.log(cameras);
     // On affiche
     affichageArticle();
   });
+
+  // Envoi du panier
+  function envoiContact(){
+    // On récupère le contact et les appareils
+    const cameras = getCameras();
+	  const contact = getContact();
+    // On construit le produit
+    let produits =[];
+	  cameras.forEach(camera => { for (let i = 0; i < camera.nbArticles; i++) {
+		  produits.push(camera.id);
+	    }
+	  });
+    // On envoie
+    const jsonBody =  {
+      "contact": contact,
+      "products": produits
+    };
+    const url = "http://localhost:3000/api/teddies/order";
+    const options = {
+      method: "POST",
+      headers: { 
+        "Accept": "application/json", 
+        "Content-Type": "application/json" 
+      },
+      body: JSON.stringify(jsonBody)
+    };
+    fetch(url, options)
+    .then((res) => res.json())
+    .then (data => {
+      console.log(data.orderId);
+      sessionStorage.setItem("order",data.orderId);
+      window.location.href="confirmation.html";
+  
+    })
+    .catch(error => console.log("Erreur : " + error));
+  }
