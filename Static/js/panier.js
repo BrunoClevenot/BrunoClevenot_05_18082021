@@ -70,7 +70,7 @@ function affichageArticle() {
     console.log(cameras[i].nom);
     console.log(cameras[i].lentille);
     body.appendChild(clone);
-  }git addStatic
+  }
   
   let spanTotal = document.querySelector(".Total");
   if (prixFactureTotal > 0) {
