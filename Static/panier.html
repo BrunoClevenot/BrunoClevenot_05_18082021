@@ -1,214 +1,425 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="Site de vente en ligne">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="shortcut icon" type="images/png" href="logo-chariot.png">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Site de vente en ligne" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <link rel="shortcut icon" type="images/png" href="logo-chariot.png" />
 
     <!-- Liens vers polices, icones fontawesome -->
     <!-- Liens vers polices, icones fontawesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Liens vers fichiers js et bootstrap-->
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="/js/panier.js"></script>
     <style>
-        .jumbotron {
-            background-image: url("../images/minicam.jpg");
-            background-size: contain;
-        }
-        .tabled{
-            margin:auto;
-        }
-        .width-max{
-            width:100%;
-        }
-        .height-fixed{
-            height:650px;
-        }
-        a.no-underline:link{
-            text-decoration: none;
-        }
-        input:invalid{
-            border: 2px red solid;
-        }
-        input:valid{
-            border: 2px green solid;
-        }
-        .little{
-            color:green;
-            font-size: 0.7rem;
-            font-style: italic;
-        }
-        .littlep{
-            font-size:0.9rem;
-        }
-        .width20{
-            min-width:75px;
-        }
+      .jumbotron {
+        background-image: url("../images/minicam.jpg");
+        background-size: contain;
+      }
+      .tabled {
+        margin: auto;
+      }
+      .width-max {
+        width: 100%;
+      }
+      .height-fixed {
+        height: 650px;
+      }
+      a.no-underline:link {
+        text-decoration: none;
+      }
+      input:invalid {
+        border: 2px red solid;
+      }
+      input:valid {
+        border: 2px green solid;
+      }
+      .little {
+        color: green;
+        font-size: 0.7rem;
+        font-style: italic;
+      }
+      .littlep {
+        font-size: 0.9rem;
+      }
+      .width20 {
+        min-width: 75px;
+      }
     </style>
 
     <title>Orinocam - Paniers</title>
-</head>
+  </head>
 
-<body>
-    <!-- Header -->						
-    <header class="bg-dark">						
-        <div class="container">						
-            <div class="row mb-2">						
-                <nav class="col-12 navbar navbar-dark">						
-                    <a class="navbar-brand text-white" href="index.html">
-                        <img src="logo.png" width="76" alt="Site logo">
-                        ORINO'CAM
-                    </a>	
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">						
-                        <span class="navbar-toggler-icon"></span>						
-                    </button>						
-                              
-                    <div id="navbarContent" class="collapse navbar-collapse justify-content-center">						           
-                        <ul class="navbar-nav">						
-                            <li class="nav-item">						
-                                <a class="nav-link text-info" href="index.html">Accueil</a>						
-                            </li>						
-                            <li class="nav-item">						
-                                <a class="nav-link text-white active" href="panier.html">Paniers</a>    						
-                           </li>	    						
-                        </ul>
-                    </div>						                           
-                </nav>						
-            </div>						
-        </div>						
+  <body>
+    <!-- Header -->
+    <header class="bg-dark">
+      <div class="container">
+        <div class="row mb-2">
+          <nav class="col-12 navbar navbar-dark">
+            <a class="navbar-brand text-white" href="index.html">
+              <img src="logo.png" width="76" alt="Site logo" />
+              ORINO'CAM
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarContent"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+              id="navbarContent"
+              class="collapse navbar-collapse justify-content-center"
+            >
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link text-info" href="index.html">Accueil</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white active" href="panier.html"
+                    >Paniers</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
     </header>
     <!-- Fin du Header-->
 
     <!-- Section principale-->
-    <main class=" mx-auto mx-0">
-        <section class="container">
-            <div class="jumbotron bg-dark border-0 rounded my-0 mx-auto">
-                <h1 class="-12 font-weight-bold text-white text-center mx-auto my-2">ORINO'CAM</h1>
-                <p class="col-12 text-white text-center mx-auto my-2">Collection d'appareils photographiques anciens</p>
-            </div>
+    <main class="mx-auto mx-0">
+      <section class="container">
+        <div class="jumbotron bg-dark border-0 rounded my-0 mx-auto">
+          <h1 class="-12 font-weight-bold text-white text-center mx-auto my-2">
+            ORINO'CAM
+          </h1>
+          <p class="col-12 text-white text-center mx-auto my-2">
+            Collection d'appareils photographiques anciens
+          </p>
+        </div>
 
-            <div class="row bg-white border-0 rounded my-5">
-                <div class="col-12 text-center mx-auto">
-                    <h2 class="col-12 font-weight-bold text-dark text-center mx-auto my-2">RÉCAPITULATIF DE COMMANDE</h2>
-                </div>
-            </div>
+        <div class="row bg-white border-0 rounded my-5">
+          <div class="col-12 text-center mx-auto">
+            <h2
+              class="col-12 font-weight-bold text-dark text-center mx-auto my-2"
+            >
+              RÉCAPITULATIF DE COMMANDE
+            </h2>
+          </div>
+        </div>
 
-            <div class="row mb-5 text-center bg-dark ">
-                <div class="col-11 col-md-7 table-light text-center my-3 mx-auto text-primary rounded table tabled">
-                    <table class="width-max">
-                        <thead>
-                            <tr class="font-weight-bold lead littlep">
-                                <th>Produits<br>Lentilles</th>
-                                <th>P.U.</th>
-                                <th>Qté</th>
-                                <th>P.T.</th>
-                            </tr>
-                        </thead>
-                        <tfoot class="text-danger">
-                            <tr class="font-weight-bold lead littlep">
-                                <th colspan="2" class="text-right">Total facture :</th>
-                                <th colspan="2" class="Total"></th>
-                            </tr>
-                        </tfoot>
-                        <tbody class="littlep">
-                            
-                            
-                        </tbody>
-                    </table>
-                    <!-- Template d'affichage des données --> 
-                    <template id="recapitulatif-produit">
-                        <tr class="littlep">
-                            <td class="produitLentille"><br class="slot-lentille"></td>
-                            <td class="prixUnitaire width20"></td>
-                            <td class="quantite"></td>
-                            <td class="prixTotal width20"></td>
-                        </tr>
-                    </template>
-                </div>
+        <div class="row mb-5 text-center bg-dark">
+          <div
+            class="
+              col-11 col-md-7
+              table-light
+              text-center
+              my-3
+              mx-auto
+              text-primary
+              rounded
+              table
+              tabled
+            "
+          >
+            <table class="width-max">
+              <thead>
+                <tr class="font-weight-bold lead littlep">
+                  <th>Produits<br />Lentilles</th>
+                  <th>P.U.</th>
+                  <th>Qté</th>
+                  <th>P.T.</th>
+                </tr>
+              </thead>
+              <tfoot class="text-danger">
+                <tr class="font-weight-bold lead littlep">
+                  <th colspan="2" class="text-right">Total facture :</th>
+                  <th colspan="2" class="Total"></th>
+                </tr>
+              </tfoot>
+              <tbody class="littlep"></tbody>
+            </table>
+            <!-- Template d'affichage des données -->
+            <template id="recapitulatif-produit">
+              <tr class="littlep">
+                <td class="produitLentille"><br class="slot-lentille" /></td>
+                <td class="prixUnitaire width20"></td>
+                <td class="quantite"></td>
+                <td class="prixTotal width20"></td>
+              </tr>
+            </template>
+          </div>
 
-                <div class="col-11 col-md-4 text-center my-3 mx-auto table-warning text-primary rounded height-fixed"> 
-                    <form>
-                        <div class="form-group">				
-                            <label for="nom" class="font-weight-bold h6 text-primary mt-1 mb-1">Nom :</label>						
-                            <input type="text" class="form-control mt-1 mb_1" id="nom" placeholder="NOM" aria-describedby="NOM" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>							
-                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON AUTORISÉS.</p>
-                            <label for="prenom" class="font-weight-bold h6 text-primary mt-1 mb-1">Prénom :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="prenom" placeholder="Prénom" aria-describedby="Prénom" pattern="[A-ZÀ-ÝŸ ]{2,250}" title="2 à 250 lettres en majuscule" required>	
-                            <p class="little">2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON AUTORISÉS.</p>
-                            <label for="adresse" class="font-weight-bold h6 text-primary mt-1 mb-1">Adresse :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="adresse" placeholder="Adresse" aria-describedby="Adresse" pattern="[0-9]{0,5}[ ]{0,1}[A-ZÀ-ÝŸ ]{2,250}" title="2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alfanumériques" required>					
-                            <p class="little">2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alphanumériques (majuscule).</p>
-                            <label for="ville" class="font-weight-bold h6 text-primary mt-1 mb-1">Ville :</label>						
-                            <input type="text" class="form-control mt-1 mb-1" id="ville" placeholder="Ville" aria-describedby="Ville" pattern="[0-9]{5}[ ]{1}[A-ZÀ-ÝŸ ]{2,250}" title="5chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique" required>
-                            <p class="little">5 chiffres suivi d'une espace et de 2 à 250 caractères alphanumériques (majuscule). Espace autorisée.</p>
-                            <label for="mail" class="font-weight-bold h6 text-primary mt-1 mb-1">e-mail :</label>						
-                            <input type="email" class="form-control mt-1 mb-1" id="mail" placeholder="e-mail" aria-describedby="e-mail" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" required>
-                            <p class="little">Adresse e-mail complète (machin@bidule.com)</p>
-                        </div>
-                    </form>          
-                    <button type="button" id="validContact" class="btn btn-warning text-white"><strong class="h5 font-weight-bold">Valider les coordonnées</strong></button>
-                </div>
-            </div>
-            
-            <div class="row mb-5">
-                <button type="button" id="validPanier" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Valider le panier</strong></button>
-                <button type="button" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3  "><a href="index.html" class="h5 font-weight-bold text-white no-underline stretched-link"> Continuer vos achats</a></button>
-                <button type="button" id="supprimePanier" class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3 "><strong class="h5 font-weight-bold">Annuler le panier</strong></button>
-            </div>
+          <div
+            class="
+              col-11 col-md-4
+              text-center
+              my-3
+              mx-auto
+              table-warning
+              text-primary
+              rounded
+              height-fixed
+            "
+          >
+            <form>
+              <div class="form-group">
+                <label
+                  for="nom"
+                  class="font-weight-bold h6 text-primary mt-1 mb-1"
+                  >Nom :</label
+                >
+                <input
+                  type="text"
+                  class="form-control mt-1 mb_1"
+                  id="nom"
+                  placeholder="NOM"
+                  aria-describedby="NOM"
+                  pattern="[A-ZÀ-ÝŸ ]{2,250}"
+                  title="2 à 250 lettres en majuscule"
+                  required
+                />
+                <p class="little">
+                  2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON
+                  AUTORISÉS.
+                </p>
+                <label
+                  for="prenom"
+                  class="font-weight-bold h6 text-primary mt-1 mb-1"
+                  >Prénom :</label
+                >
+                <input
+                  type="text"
+                  class="form-control mt-1 mb-1"
+                  id="prenom"
+                  placeholder="Prénom"
+                  aria-describedby="Prénom"
+                  pattern="[A-ZÀ-ÝŸ ]{2,250}"
+                  title="2 à 250 lettres en majuscule"
+                  required
+                />
+                <p class="little">
+                  2 à 250 lettres en majuscule. Espace autorisée. CHIFFRES NON
+                  AUTORISÉS.
+                </p>
+                <label
+                  for="adresse"
+                  class="font-weight-bold h6 text-primary mt-1 mb-1"
+                  >Adresse :</label
+                >
+                <input
+                  type="text"
+                  class="form-control mt-1 mb-1"
+                  id="adresse"
+                  placeholder="Adresse"
+                  aria-describedby="Adresse"
+                  pattern="[0-9]{0,5}[ ]{0,1}[A-ZÀ-ÝŸ ]{2,250}"
+                  title="2 à 5 chiffres éventuels suivi éventuellement d'une espace et de 2 à 250 caractères alfanumériques"
+                  required
+                />
+                <p class="little">
+                  2 à 5 chiffres éventuels suivi éventuellement d'une espace et
+                  de 2 à 250 caractères alphanumériques (majuscule).
+                </p>
+                <label
+                  for="ville"
+                  class="font-weight-bold h6 text-primary mt-1 mb-1"
+                  >Ville :</label
+                >
+                <input
+                  type="text"
+                  class="form-control mt-1 mb-1"
+                  id="ville"
+                  placeholder="Ville"
+                  aria-describedby="Ville"
+                  pattern="[0-9]{5}[ ]{1}[A-ZÀ-ÝŸ ]{2,250}"
+                  title="5 chiffres du code Postal suivi d'un espace et de 2 à 250 caractères alphabétique"
+                  required
+                />
+                <p class="little">
+                  5 chiffres suivi d'une espace et de 2 à 250 caractères
+                  alphanumériques (majuscule). Espace autorisée.
+                </p>
+                <label
+                  for="mail"
+                  class="font-weight-bold h6 text-primary mt-1 mb-1"
+                  >e-mail :</label
+                >
+                <input
+                  type="email"
+                  class="form-control mt-1 mb-1"
+                  id="mail"
+                  placeholder="e-mail"
+                  aria-describedby="email"
+                  pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$"
+                  required
+                />
+                <p class="little">
+                  Adresse e-mail complète (machin@bidule.com)
+                </p>
+              </div>
+            </form>
+            <button
+              type="button"
+              id="validContact"
+              class="btn btn-warning text-white"
+            >
+              <strong class="h5 font-weight-bold"
+                >Valider les coordonnées</strong
+              >
+            </button>
+          </div>
+        </div>
 
-        </section>
+        <div class="row mb-5">
+          <button
+            type="button"
+            id="validPanier"
+            class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3"
+          >
+            <strong class="h5 font-weight-bold">Valider le panier</strong>
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3"
+          >
+            <a
+              href="index.html"
+              class="h5 font-weight-bold text-white no-underline stretched-link"
+            >
+              Continuer vos achats</a
+            >
+          </button>
+          <button
+            type="button"
+            id="supprimePanier"
+            class="btn btn-warning text-white col-11 col-md-5 mx-auto mb-3"
+          >
+            <strong class="h5 font-weight-bold">Annuler le panier</strong>
+          </button>
+        </div>
+      </section>
     </main>
     <!-- Fin de la section principale-->
 
     <!-- Footer -->
     <footer class="bg-dark mt-3">
-        <div class="container">						
-            <div class="row">
-                <p class="text-center text-white font-weight-bold col-12 mx-auto h5 my-3">LE GROUPE ORINICO</p>
+      <div class="container">
+        <div class="row">
+          <p
+            class="
+              text-center text-white
+              font-weight-bold
+              col-12
+              mx-auto
+              h5
+              my-3
+            "
+          >
+            LE GROUPE ORINICO
+          </p>
+        </div>
+        <div class="row">
+          <div class="card bg-dark col-12 col-md-5 mx-auto my-0 border-0">
+            <div class="card-body">
+              <p class="text-left text-white font-weight-bold h6 my-1">
+                GÉNÉRALITÉS
+              </p>
+              <ul class="list-group">
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white"
+                    >Conditions générales de ventes</a
+                  >
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">Mentions légales</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">SAV</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a
+                    href="mailto:contact@oricono.com"
+                    class="text-left text-white"
+                    >Contactez-nous</a
+                  >
+                </li>
+              </ul>
             </div>
-            <div class="row">						
-                <div class="card bg-dark col-12 col-md-5  mx-auto my-0 border-0">
-                    <div class="card-body">
-                        <p class="text-left text-white font-weight-bold h6 my-1">GÉNÉRALITÉS</p>
-                        <ul class="list-group">
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Conditions générales de ventes</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Mentions légales</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">SAV</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="mailto:contact@oricono.com" class="text-left text-white">Contactez-nous</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card bg-dark col-12 col-md-7  mx-auto my-1 border-0">
-                    <div class="card-body">
-                        <p class="text-left text-white h6 font-weight-bold my-1">Nos autres sites</p>
-                        <ul class="list-group">
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Orin'ours</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoLivres</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoTextile</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">OrinoCuisine</a></li>
-                            <li class="list-group-item bg-dark py-1 border-0"><a href="" class="text-left text-white">Orin'Informatique</a></li>
-                        </ul>
-                    </div>
-                </div>
+          </div>
+          <div class="card bg-dark col-12 col-md-7 mx-auto my-1 border-0">
+            <div class="card-body">
+              <p class="text-left text-white h6 font-weight-bold my-1">
+                Nos autres sites
+              </p>
+              <ul class="list-group">
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">Orin'ours</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">OrinoLivres</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">OrinoTextile</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">OrinoCuisine</a>
+                </li>
+                <li class="list-group-item bg-dark py-1 border-0">
+                  <a href="" class="text-left text-white">Orin'Informatique</a>
+                </li>
+              </ul>
             </div>
-            <div class="row">
-                <p class="text-center text-white font-weight-bold col-12 mx-auto small my-3">© 2021 - ORINICO - Tous droits réservés</p>
-            </div>	
-        </div>					 
+          </div>
+        </div>
+        <div class="row">
+          <p
+            class="
+              text-center text-white
+              font-weight-bold
+              col-12
+              mx-auto
+              small
+              my-3
+            "
+          >
+            © 2021 - ORINICO - Tous droits réservés
+          </p>
+        </div>
+      </div>
     </footer>
     <!-- Fin du footer -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-</body>
-
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
