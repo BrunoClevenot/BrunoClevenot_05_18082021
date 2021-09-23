@@ -164,7 +164,7 @@ function isObjectEmpty(object) {
   }
   return isEmpty;
 }
-//fonction vérification et envoi du contact
+//fonction vérification du contact et du panier
 function envoiContact() {
   let searchContact = getContact();
   let vide = isObjectEmpty(searchContact);
@@ -175,27 +175,32 @@ function envoiContact() {
   let adresse = elementAdresse.value;
   let ville = elementVille.value;
   let mail = elementMail.value;
+  let verificationOK=true;
   //On vérifie si les données sont présentes et correctes
   if (!nom || elementNom.validity.patternMismatch){
     alert("Le champ NOM n'est pas ou est mal renseigné !!");
     erreur="NOM";
+    verificationOK=false;
   }
   if (!erreur){
     if (!prenom || elementPrenom.validity.patternMismatch){
       alert("Le champ Prénom n'est pas ou est mal renseigné !!");
       erreur="Prénom";
+      verificationOK=false;
     }
   }
   if (!erreur){
     if (!adresse || elementAdresse.validity.patternMismatch){
       alert("Le champ Adresse n'est pas ou est mal renseigné !!");
       erreur="Adresse";
+      verificationOK=false;
     }
   }
   if (!erreur){
     if (!ville || elementVille.validity.patternMismatch){
       alert("Le champ Ville n'est pas ou est mal renseigné !!");
       erreur="Ville";
+      verificationOK=false;
     }
   }
   if (!erreur){
@@ -203,6 +208,7 @@ function envoiContact() {
       console.log(elementMail.validity.patternMismatch)
       alert("Le champ e-mail n'est pas ou est mal renseigné !!");
       erreur="e-mail";
+      verificationOK=false;
     }
   }
   // Vérification du panier
@@ -211,35 +217,22 @@ function envoiContact() {
       if (cameras.length==0){
         alert("Aucun produit sélectionné !!");
         erreur="Produit";
+        verificationOK=false;
       }
   }
-  // Si pas d'erreur, enregistrer ou modifier le contact
-  if (erreur===""){
-    // si contact vide, création du contact
-    if (vide === true) {
-      // création du contact
-      let newContact = createContact(nom, prenom, adresse, ville, mail);
-      // On envoie le contact au serveur
-      sessionStorage.setItem("contact", JSON.stringify(newContact));
-    } else {
-      //On modifie le contact
-      searchContact.firstName = prenom;
-      searchContact.lastName = nom;
-      searchContact.adress = adresse;
-      searchContact.city = ville;
-      searchContact.email = mail;
-      // On envoie le contact au serveur
-      sessionStorage.setItem("contact", JSON.stringify(searchContact));
-    }
-  }
+  return verificationOK;
 }
 
 // Validation du contact
 document.querySelector("#validPanier").addEventListener("click", () => {
   // Vérification et envoi du contact
-  envoiContact();
-  // Envoi du panier
-  envoiPanier();
+  let verif= envoiContact();
+  console.log(verif);
+  // Si panier OK
+  if (verif==true){
+    // On envoie le panier
+    envoiPanier();
+  }
 });
 
 //Suppression des appareils sélectionnés
@@ -254,38 +247,37 @@ document
     affichageArticle();
   });
 
-  // Envoi du panier
-  function envoiContact(){
-    // On récupère le contact et les appareils
-    const cameras = getCameras();
-	  const contact = getContact();
-    // On construit le produit
-    let produits =[];
-	  cameras.forEach(camera => { for (let i = 0; i < camera.nbArticles; i++) {
-		  produits.push(camera.id);
-	    }
-	  });
-    // On envoie
-    const jsonBody =  {
-      "contact": contact,
-      "products": produits
-    };
-    const url = "http://localhost:3000/api/teddies/order";
-    const options = {
-      method: "POST",
-      headers: { 
-        "Accept": "application/json", 
-        "Content-Type": "application/json" 
-      },
-      body: JSON.stringify(jsonBody)
-    };
-    fetch(url, options)
-    .then((res) => res.json())
-    .then (data => {
-      console.log(data.orderId);
-      sessionStorage.setItem("order",data.orderId);
-      window.location.href="confirmation.html";
-  
-    })
+// Envoi du panier
+function envoiPanier(){
+  // On récupère le contact et les appareils
+  const cameras = getCameras();
+	const contact = getContact();
+  // On construit le produit
+  let produits =[];
+	cameras.forEach(camera => { for (let i = 0; i < camera.nbArticles; i++) {
+		produits.push(camera.id);
+	  }
+	});
+  // On envoie
+  const jsonBody =  {
+    "contact": contact,
+    "products": produits
+  };
+  const url = "http://localhost:3000/api/teddies/order";
+  const options = {
+    method: "POST",
+    headers: { 
+      "Accept": "application/json", 
+      "Content-Type": "application/json" 
+    },
+    body: JSON.stringify(jsonBody)
+  };
+  fetch(url, options)
+  .then((res) => res.json())
+  .then (data => {
+    console.log(data.orderId);
+    sessionStorage.setItem("order",data.orderId);
+    window.location.href="confirmation.html";
+  })
     .catch(error => console.log("Erreur : " + error));
-  }
+}
