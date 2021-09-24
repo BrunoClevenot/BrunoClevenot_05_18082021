@@ -71,7 +71,7 @@ function affichageArticle() {
     console.log(cameras[i].lentille);
     body.appendChild(clone);
   }
-  
+
   let spanTotal = document.querySelector(".Total");
   if (prixFactureTotal > 0) {
     spanTotal.textContent = prixFactureTotal + " €";
@@ -100,8 +100,6 @@ function getContact() {
   return contact;
 }
 
-let contactEnregistre = getContact();
-
 // recupération des valeurs et passage en majuscule
 // 1. Récupéraion des éléments
 const elementNom = document.getElementById("nom");
@@ -109,7 +107,7 @@ const elementPrenom = document.getElementById("prenom");
 const elementAdresse = document.getElementById("adresse");
 const elementVille = document.getElementById("ville");
 const elementMail = document.getElementById("mail");
-console.log(elementNom.value)
+console.log(elementNom.value);
 // 2.1 Passage en majuscule
 elementNom.addEventListener("focusout", majusculeNom);
 elementPrenom.addEventListener("focusout", majusculePrenom);
@@ -123,6 +121,7 @@ function majusculeNom() {
 }
 function majusculePrenom() {
   let prenom = elementPrenom.value;
+  console.log(prenom)
   prenom = prenom.toUpperCase();
   elementPrenom.value = prenom;
 }
@@ -151,7 +150,15 @@ function affichageContact() {
 
 // Fonction création objet Contact
 function createContact() {
+  let  prenom=elementPrenom.value;
+  let nom=elementNom.value;
+  let adresse=elementAdresse.value;
+  let ville=elementVille.value;
+  let mail=elementMail.value;
   const contact = new BuildContact(prenom, nom, adresse, ville, mail);
+  console.log(contact)
+  sessionStorage.setItem("contact", JSON.stringify(contact));
+  console.log(prenom);
   return contact;
 }
 
@@ -167,69 +174,75 @@ function isObjectEmpty(object) {
 //fonction vérification du contact et du panier
 function envoiContact() {
   let searchContact = getContact();
+  console.log(searchContact);
   let vide = isObjectEmpty(searchContact);
-  let erreur=""
+  let erreur = "";
   console.log(vide);
   let nom = elementNom.value;
   let prenom = elementPrenom.value;
   let adresse = elementAdresse.value;
   let ville = elementVille.value;
   let mail = elementMail.value;
-  let verificationOK=true;
+  let verificationOK = true;
   //On vérifie si les données sont présentes et correctes
-  if (!nom || elementNom.validity.patternMismatch){
+  if (!nom || elementNom.validity.patternMismatch) {
     alert("Le champ NOM n'est pas ou est mal renseigné !!");
-    erreur="NOM";
-    verificationOK=false;
+    erreur = "NOM";
+    verificationOK = false;
   }
-  if (!erreur){
-    if (!prenom || elementPrenom.validity.patternMismatch){
+  if (!erreur) {
+    if (!prenom || elementPrenom.validity.patternMismatch) {
       alert("Le champ Prénom n'est pas ou est mal renseigné !!");
-      erreur="Prénom";
-      verificationOK=false;
+      erreur = "Prénom";
+      verificationOK = false;
     }
   }
-  if (!erreur){
-    if (!adresse || elementAdresse.validity.patternMismatch){
+  if (!erreur) {
+    if (!adresse || elementAdresse.validity.patternMismatch) {
       alert("Le champ Adresse n'est pas ou est mal renseigné !!");
-      erreur="Adresse";
-      verificationOK=false;
+      erreur = "Adresse";
+      verificationOK = false;
     }
   }
-  if (!erreur){
-    if (!ville || elementVille.validity.patternMismatch){
+  if (!erreur) {
+    if (!ville || elementVille.validity.patternMismatch) {
       alert("Le champ Ville n'est pas ou est mal renseigné !!");
-      erreur="Ville";
-      verificationOK=false;
+      erreur = "Ville";
+      verificationOK = false;
     }
   }
-  if (!erreur){
-    if (!mail || elementMail.validity.patternMismatch){
-      console.log(elementMail.validity.patternMismatch)
+  if (!erreur) {
+    if (!mail || elementMail.validity.patternMismatch) {
+      console.log(elementMail.validity.patternMismatch);
       alert("Le champ e-mail n'est pas ou est mal renseigné !!");
-      erreur="e-mail";
-      verificationOK=false;
+      erreur = "e-mail";
+      verificationOK = false;
     }
   }
   // Vérification du panier
-  if (!erreur){
-      let cameras=getCameras();
-      if (cameras.length==0){
-        alert("Aucun produit sélectionné !!");
-        erreur="Produit";
-        verificationOK=false;
-      }
+  if (!erreur) {
+    let cameras = getCameras();
+    if (cameras.length == 0) {
+      alert("Aucun produit sélectionné !!");
+      erreur = "Produit";
+      verificationOK = false;
+    }
+  }else{
+    verificationOK=false;
   }
+
   return verificationOK;
 }
 
 // Validation du contact
 document.querySelector("#validPanier").addEventListener("click", () => {
   // Vérification et envoi du contact
-  let verif= envoiContact();
+  let verif = envoiContact();
   console.log(verif);
   // Si panier OK
-  if (verif==true){
+  if (verif == true) {
+    // On crée le contact
+    createContact();
     // On envoie le panier
     envoiPanier();
   }
@@ -248,36 +261,39 @@ document
   });
 
 // Envoi du panier
-function envoiPanier(){
+function envoiPanier() {
   // On récupère le contact et les appareils
   const cameras = getCameras();
-	const contact = getContact();
+  const contact = getContact();
+  console.log(contact);
+  console.log(cameras);
   // On construit le produit
-  let produits =[];
-	cameras.forEach(camera => { for (let i = 0; i < camera.nbArticles; i++) {
-		produits.push(camera.id);
-	  }
-	});
+  let produits = [];
+  cameras.forEach((camera) => {
+    for (let i = 0; i < camera.nbArticles; i++) {
+      produits.push(camera.id);
+    }
+  });
   // On envoie
-  const jsonBody =  {
-    "contact": contact,
-    "products": produits
+  const jsonBody = {
+    contact: contact,
+    products: cameras,
   };
   const url = "http://localhost:3000/api/teddies/order";
   const options = {
     method: "POST",
-    headers: { 
-      "Accept": "application/json", 
-      "Content-Type": "application/json" 
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(jsonBody)
+    body: JSON.stringify(jsonBody),
   };
   fetch(url, options)
-  .then((res) => res.json())
-  .then (data => {
-    console.log(data.orderId);
-    sessionStorage.setItem("order",data.orderId);
-    window.location.href="confirmation.html";
-  })
-    .catch(error => console.log("Erreur : " + error));
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.orderId);
+      sessionStorage.setItem("order", data.orderId);
+      
+    })
+    .catch((error) => console.log("Erreur : " + error));
 }
