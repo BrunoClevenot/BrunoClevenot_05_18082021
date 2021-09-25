@@ -59,7 +59,7 @@ function affichageArticle() {
     clone.querySelector(".produitLentille").textContent =
       cameras[i].nom + " - " + cameras[i].lentille;
     clone.querySelector(".prixUnitaire").textContent = cameras[i].prix + " €";
-    let prixTotal = prixproduitTotal(
+    let prixTotal = prixProduitTotal(
       cameras[i].prix,
       cameras[i].nombreArticles
     );
@@ -70,6 +70,7 @@ function affichageArticle() {
     console.log(cameras[i].nom);
     console.log(cameras[i].lentille);
     body.appendChild(clone);
+    sessionStorage.setItem("total", prixFactureTotal);
   }
 
   let spanTotal = document.querySelector(".Total");
@@ -84,7 +85,7 @@ function affichageArticle() {
 affichageArticle();
 
 // Calcul prix total d'un produit
-function prixproduitTotal(prix, nombre) {
+function prixProduitTotal(prix, nombre) {
   let ppt = prix * nombre;
   return ppt;
 }
@@ -276,14 +277,14 @@ function envoiPanier() {
   });
   // On envoie
   const jsonBody = {
-    contact: contact,
-    products: cameras,
+    "contact": contact,
+    "products": cameras
   };
-  const url = "http://localhost:3000/api/teddies/order";
+  const url = "http://localhost:3000/api/cameras/order";
   const options = {
     method: "POST",
     headers: {
-      Accept: "application/json",
+      "Accept": "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(jsonBody),
@@ -293,7 +294,7 @@ function envoiPanier() {
     .then((data) => {
       console.log(data.orderId);
       sessionStorage.setItem("order", data.orderId);
-      
+      window.location.href="confirmation.html";
     })
     .catch((error) => console.log("Erreur : " + error));
 }
