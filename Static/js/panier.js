@@ -270,15 +270,16 @@ function envoiPanier() {
   console.log(cameras);
   // On construit le produit
   let produits = [];
-  cameras.forEach((camera) => {
-    for (let i = 0; i < camera.nbArticles; i++) {
+  cameras.forEach(camera => {
+    for (let i = 0; i < camera.nombreArticles; i++) {
       produits.push(camera.id);
     }
+  console.log(produits);
   });
   // On envoie
   const jsonBody = {
     "contact": contact,
-    "products": cameras
+    "products": produits
   };
   const url = "http://localhost:3000/api/cameras/order";
   const options = {
@@ -290,11 +291,11 @@ function envoiPanier() {
     body: JSON.stringify(jsonBody),
   };
   fetch(url, options)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.orderId);
-      sessionStorage.setItem("order", data.orderId);
-      window.location.href="confirmation.html";
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data.orderId);
+    sessionStorage.setItem("order", data.orderId);
+    
     })
     .catch((error) => console.log("Erreur : " + error));
 }
