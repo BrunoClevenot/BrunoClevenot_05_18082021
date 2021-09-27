@@ -2,8 +2,11 @@
 
 // Définition de l'id recherchée
 const url = window.location.href;
+console.log(url);
 const urlObj = new URL(url);
+console.log(urlObj);
 const idTrouvee = urlObj.searchParams.get("id");
+console.log(idTrouvee);
 
 // Constructeur d'Appareil
 class AppareilPhoto {
