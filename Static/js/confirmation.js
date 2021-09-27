@@ -16,7 +16,7 @@ const mail=document.querySelector(".slot-commandMail");
 
 numero.textContent=order;
 prix.textContent= prixTotal + " €";
-const adresse=contact.address+ " "+contact.city
+const adresse = contact.address + " " + contact.city;
 console.log(adresse);
 adress.textContent=adresse;
 mail.textContent=contact.email;
