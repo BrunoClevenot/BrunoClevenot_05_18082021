@@ -1,5 +1,7 @@
 // produit.js
 
+import { AppareilPhoto, BuildContact } from './modules/constructeurs.js';
+
 // Définition de l'id recherchée
 const url = window.location.href;
 console.log(url);
@@ -7,18 +9,6 @@ const urlObj = new URL(url);
 console.log(urlObj);
 const idTrouvee = urlObj.searchParams.get("id");
 console.log(idTrouvee);
-
-// Constructeur d'Appareil
-class AppareilPhoto {
-  constructor(id, image, nom, lentille, prix, nombreArticles) {
-    this.id = id;
-    this.image = image;
-    this.nom = nom;
-    this.lentille = lentille;
-    this.prix = prix;
-    this.nombreArticles = nombreArticles;
-  }
-}
 
 // Fonction de calcul du prix global
 function globalPrice(ev, value) {
@@ -39,7 +29,7 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
   })
   .then(function (value) {
     if ("content" in document.createElement("template")) {
-      prixUnitaire = value.price / 100;
+      let prixUnitaire = value.price / 100;
       console.log(prixUnitaire);
       console.log(value);
       console.log(value.imageUrl);
@@ -51,8 +41,8 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
       clone.querySelector(".slot-description").textContent = value.description;
       if (value.lenses.length > 0) {
         for (let i = 0; i < value.lenses.length; i++) {
-          opt = clone.querySelector("#lentilles");
-          option = document.createElement("option");
+          let opt = clone.querySelector("#lentilles");
+          let option = document.createElement("option");
           option.text = value.lenses[i];
           option.value = value.lenses[i];
           if (i === 0) {
@@ -82,7 +72,7 @@ fetch("http://localhost:3000/api/cameras/" + idTrouvee)
         "Nous vous invitons à revenir ultérieurement.";
       article.appendChild(clone);
     }
-    console.log("Erreur : " + err);
+    console.error(err);
   });
 
 // Fonction de récuparation des appareils du panier

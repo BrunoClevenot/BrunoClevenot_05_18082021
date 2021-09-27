@@ -272,7 +272,7 @@ function envoiPanier() {
   .then((data) => {
     console.log(data.orderId);
     sessionStorage.setItem("order", data.orderId);
-    window.location.href="confirmation.html"
+    window.location.href = "confirmation.html";
     })
     .catch((error) => console.log("Erreur : " + error));
 }
