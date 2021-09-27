@@ -9,10 +9,14 @@ console.log(contact);
 console.log(prixTotal);
 console.log(order);
 
-const numero=document.getElementsByClassName('slot-commandNumber');
-const prix = document.getElementsByClassName("slot-commandPrice");
-const adress=document.getElementsByClassName("slot-commandAdress");
-const mail=document.getElementsByClassName("slot-commandMail");
+const numero=document.querySelector(".slot-commandNumber");
+const prix = document.querySelector(".slot-commandPrice");
+const adress=document.querySelector(".slot-commandAdress");
+const mail=document.querySelector(".slot-commandMail");
 
-numero.innerText=order;
-prix.innerText= String(prixTotal);
+numero.textContent=order;
+prix.textContent= prixTotal + " €";
+const adresse=contact.adress+ " "+contact.city
+console.log(adresse);
+adress.textContent=adresse;
+mail.textContent=contact.email;
