@@ -1,27 +1,4 @@
-// produit.js
-
-// Constructeur d'Appareil
-class AppareilPhoto {
-  constructor(id, image, nom, lentille, prix, nombreArticles) {
-    this.id = id;
-    this.image = image;
-    this.nom = nom;
-    this.lentille = lentille;
-    this.prix = prix;
-    this.nombreArticles = nombreArticles;
-  }
-}
-
-// Constructeur d'objet contact
-class BuildContact {
-  constructor(firstName, lastName, address, city, email) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.address = address;
-    this.city = city;
-    this.email = email;
-  }
-}
+import { AppareilPhoto, BuildContact } from './modules/constructeurs.js';
 
 // Fonction de récuparation des appareils du panier
 function getCameras() {
@@ -166,7 +143,7 @@ function createContact() {
 // fonction vérification objet vide
 function isObjectEmpty(object) {
   let isEmpty = true;
-  for (keys in object) {
+  for (const keys in object) {
     isEmpty = false;
     break;
   }
