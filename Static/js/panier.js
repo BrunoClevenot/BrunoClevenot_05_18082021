@@ -114,18 +114,6 @@ function majusculeVille() {
   elementVille.value = ville;
 }
 
-//Affichage du contact si présent
-function affichageContact() {
-  let vide = isObjectEmpty(contactEnregistre);
-  if (vide === false) {
-    elementNom.value = contactEnregistre.lastName;
-    elementPrenom.value = contactEnregistre.firstName;
-    elementAdresse.value = contactEnregistre.adress;
-    elementVille.value = contactEnregistre.city;
-    elementMail.value = contactEnregistre.email;
-  }
-}
-
 // Fonction création objet Contact
 function createContact() {
   let  prenom=elementPrenom.value;
